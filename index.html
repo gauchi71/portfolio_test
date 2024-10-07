@@ -498,8 +498,13 @@ https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.
         (() => {
             document.addEventListener('DOMContentLoaded', () => {
                 let scroll
+                function isMobileDevice() {
+                    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                }
                 function initScroll() {
-                    const isMobile = window.innerWidth <= 1024
+                    if (isMobileDevice()) {
+                        return
+                    }
                     const direction = window.innerWidth <= 1024 ? 'vertical' : 'horizontal';
                     scroll = new LocomotiveScroll({
                         el: document.querySelector('[data-scroll-container]'),
@@ -514,20 +519,16 @@ https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.
                             smooth: false,
                         },
                     })
-                    document.documentElement.classList.remove('has-scroll-init');
                 }
                 initScroll()
 
-                let scrollPosition = 0;
-
                 window.addEventListener('resize', function () {
-                if (scroll) {
-                    scrollPosition = scroll.scroll.instance.scroll.y;  // 現在のスクロール位置を保存
-                    scroll.destroy();
-                }
-                document.querySelector('html').removeAttribute('data-scroll-direction');
-                initScroll();
-                scroll.scrollTo(scrollPosition, { duration: 0 });  // 保存した位置に戻す
+                    if (scroll) {
+                        scroll.destroy();
+                    }
+                    document.querySelector('html').removeAttribute('data-scroll-direction')
+
+                    initScroll();
                 });
                 window.addEventListener('load', function () {
                     const hash = window.location.hash
