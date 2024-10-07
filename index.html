@@ -498,13 +498,13 @@ https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.
         (() => {
             document.addEventListener('DOMContentLoaded', () => {
                 let scroll
-                // function isMobileDevice() {
-                //     return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-                // }
+                function isMobileDevice() {
+                    return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                }
                 function initScroll() {
-                    // if (isMobileDevice()) {
-                    //     return
-                    // }
+                    if (isMobileDevice()) {
+                        return
+                    }
                     const isMobile = window.innerWidth <= 1024
                     const direction = window.innerWidth <= 1024 ? 'vertical' : 'horizontal';
                     scroll = new LocomotiveScroll({
