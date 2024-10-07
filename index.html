@@ -518,13 +518,16 @@ https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.
                 }
                 initScroll()
 
-                window.addEventListener('resize', function () {
-                    if (scroll) {
-                        scroll.destroy();
-                    }
-                    document.querySelector('html').removeAttribute('data-scroll-direction')
+                let scrollPosition = 0;
 
-                    initScroll();
+                window.addEventListener('resize', function () {
+                if (scroll) {
+                    scrollPosition = scroll.scroll.instance.scroll.y;  // 現在のスクロール位置を保存
+                    scroll.destroy();
+                }
+                document.querySelector('html').removeAttribute('data-scroll-direction');
+                initScroll();
+                scroll.scrollTo(scrollPosition, { duration: 0 });  // 保存した位置に戻す
                 });
                 window.addEventListener('load', function () {
                     const hash = window.location.hash
