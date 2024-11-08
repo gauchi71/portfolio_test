@@ -231,12 +231,15 @@ $(function () {
     //         observer.observe(aboutText);
     //     }
     // }
-    $('.line').on('inview',  function (event, isInView, index) {
+    $('.line_wrap').on('inview',  function (event, isInView, index) {
         if (isInView) {
             const $el = $(this);
-            setTimeout(() => {
-                $el.addClass('is-animated');
-            }, index * 500); // 各要素の遅延を調整
+            $el.children('.line').each((i, value) => {
+                console.log(value)
+                setTimeout(() => {
+                    $(value).addClass('is-animated');
+                }, i * 500); // 各要素の遅延を調整
+            })
         }
     });
 
