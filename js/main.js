@@ -208,25 +208,25 @@ $(function () {
         });
     });
     // aboutセクションのアニメーション
-    // const lines = document.querySelectorAll('.line');
-    // if (lines.length) {
-    //     const aboutText = document.querySelector('.about-text');
-    //     if (aboutText) {
-    //         const observer = new IntersectionObserver(entries => {
-    //             entries.forEach(entry => {
-    //                 if (entry.isIntersecting) {
-    //                     lines.forEach((line, index) => {
-    //                         setTimeout(() => {
-    //                             line.classList.add('is-animated');
-    //                         }, index * 300);
-    //                     });
-    //                     observer.disconnect();
-    //                 }
-    //             });
-    //         });
-    //         observer.observe(aboutText);
-    //     }
-    // }
+    const lines = document.querySelectorAll('.line');
+    if (lines.length) {
+        const aboutText = document.querySelector('.about-text');
+        if (aboutText) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        lines.forEach((line, index) => {
+                            setTimeout(() => {
+                                line.classList.add('is-animated');
+                            }, index * 300);
+                        });
+                        observer.disconnect();
+                    }
+                });
+            });
+            observer.observe(aboutText);
+        }
+    }
 
 
     // skillセクションのアニメーション
