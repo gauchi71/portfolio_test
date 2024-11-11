@@ -827,6 +827,10 @@ h3 {
     transition: opacity 3s ease, transform 5s ease;
     /* アニメーションの効果 */
     will-change: opacity, transform; /* Safari */
+    display: block;
+}
+.line:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 .line.is-animated {
