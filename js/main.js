@@ -48,6 +48,17 @@ stroke = new Vivus('mask', { // アニメーションをするIDの指定
 
 // ページが読み込まれた時の処理
 $(window).on('load', function () {
+    // 平垣内追加部分 inView.js
+    $('.line').on('inview',  function (event, isInView, index) {
+        if (isInView) {
+            const $el = $(this);
+            $el.each((i, value) => {
+                // setTimeout(() => {
+                    $(value).stop().addClass('is-animated');
+                // }, i * 500);
+            })
+        }
+    });
     const currentURL = window.location.href;
 
     // URLに"#"が含まれていない場合にのみ処理を実行
@@ -89,17 +100,6 @@ $(window).on('load', function () {
         setTimeout(function () {
             stroke.play();
         }, 30000);
-    });
-    // 平垣内追加部分 inView.js
-    $('.line').on('inview',  function (event, isInView, index) {
-        if (isInView) {
-            const $el = $(this);
-            $el.each((i, value) => {
-                setTimeout(() => {
-                    $(value).stop().addClass('is-animated');
-                }, i * 500);
-            })
-        }
     });
 });
 
