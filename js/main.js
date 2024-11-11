@@ -90,6 +90,17 @@ $(window).on('load', function () {
             stroke.play();
         }, 30000);
     });
+    // 平垣内追加部分 inView.js
+    $('.line').on('inview',  function (event, isInView, index) {
+        if (isInView) {
+            const $el = $(this);
+            $el.each((i, value) => {
+                setTimeout(() => {
+                    $(value).stop().addClass('is-animated');
+                }, i * 500);
+            })
+        }
+    });
 });
 
 $(function () {
@@ -228,18 +239,6 @@ $(function () {
     //     }
     // }
 
-    // 平垣内追加部分 inView.js
-    $('.line').on('inview',  function (event, isInView, index) {
-        if (isInView) {
-            const $el = $(this);
-            $el.each((i, value) => {
-                // console.log(value)
-                // setTimeout(() => {
-                    $(value).stop().addClass('is-animated');
-                // }, i * 500);
-            })
-        }
-    });
 
     // skillセクションのアニメーション
     const skills = document.querySelectorAll('.skill');
