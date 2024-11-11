@@ -218,7 +218,7 @@ $(function () {
                         lines.forEach((line, index) => {
                             setTimeout(() => {
                                 line.classList.add('is-animated');
-                            }, index * 300);
+                            }, index * 500);
                         });
                         observer.disconnect();
                     }
