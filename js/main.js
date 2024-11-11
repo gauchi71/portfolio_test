@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var stroke;
 stroke = new Vivus('mask', { // アニメーションをするIDの指定
-    start: 'manual', // 自動再生をせずスタートをマニュアルに
+    start: 'manual', // 自動再生をせずスタートをマニュルに
     type: 'scenario-sync', // アニメーションのタイプを設定
-    duration: 12, // アニメーションの時間設定。数字が小さくなるほど速い
+    duration:14, // アニメーションの時間設定。数字が小さくなるほど速い
     forceRender: false, // パスが更新された場合に再レンダリングさせない
-    animTimingFunction: Vivus.EASE, // 動きの加速減速設定
+    animTimingFunction: Vivus.EASE_OUT_BOUNCE, // 動きの加速減速設定
 });
 
 // ページが読み込まれた時の処理
@@ -66,16 +66,13 @@ $(window).on('load', function () {
         $("#spl").delay(2000).fadeOut('slow', function () {
             $('body').addClass('appear'); // フェードアウト後bodyにappearクラス付与
             stroke.play();
-            
+
             // <div id="container">を表示
             $('#container').fadeIn('slow'); // フェードインで表示する処理
-
             if($(window).width()<768){
                 $('.openbtn').fadeIn();
             }
         });
-
-
 
     } else {
         // URLに"#"が含まれている場合は、#splを非表示にし、#containerのアニメーションを実行
@@ -110,7 +107,7 @@ $(function () {
         console.log(data);
         loadingElement.style.display = "none";
     }
-    
+
     // Slider設定
     $('.website_slider').slick({
         autoplay: true,
@@ -169,8 +166,8 @@ $(function () {
         $('html, body').animate({ scrollTop: $(window).scrollTop() + 700 }, 'smooth');
         return false;
     });
-    
-      
+
+
 //     });
     // ページトップボタンのクリックでページの最上部に移動
     $('.pagetopwrap').click(function () {
@@ -184,7 +181,6 @@ $(function () {
         }
     });
     }
-
 )
     // サブタイトルの動作の設定
     $(window).scroll(function () {
@@ -212,37 +208,38 @@ $(function () {
         });
     });
     // aboutセクションのアニメーション
-    // const lines = document.querySelectorAll('.line');
-    // if (lines.length) {
-    //     const aboutText = document.querySelector('.about-text');
-    //     if (aboutText) {
-    //         const observer = new IntersectionObserver(entries => {
-    //             entries.forEach(entry => {
-    //                 if (entry.isIntersecting) {
-    //                     lines.forEach((line, index) => {
-    //                         setTimeout(() => {
-    //                             line.classList.add('is-animated');
-    //                         }, index * 500);
-    //                     });
-    //                     observer.disconnect();
-    //                 }
-    //             });
-    //         });
-    //         observer.observe(aboutText);
-    //     }
-    // }
-    $('.line').on('inview',  function (event, isInView, index) {
-        if (isInView) {
-            const $el = $(this);
-            // $el.stop().addClass('is-animated')
-            $el.each((i, value) => {
-                console.log(value)
-                setTimeout(() => {
-                    $(value).stop().addClass('is-animated');
-                }, i * 500); // 各要素の遅延を調整
-            })
+    const lines = document.querySelectorAll('.line');
+    if (lines.length) {
+        const aboutText = document.querySelector('.about-text');
+        if (aboutText) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        lines.forEach((line, index) => {
+                            setTimeout(() => {
+                                line.classList.add('is-animated');
+                            }, index * 500);
+                        });
+                        observer.disconnect();
+                    }
+                });
+            });
+            observer.observe(aboutText);
         }
-    });
+    }
+
+    // $('.line').on('inview',  function (event, isInView, index) {
+    //     if (isInView) {
+    //         const $el = $(this);
+    //         // $el.stop().addClass('is-animated')
+    //         $el.each((i, value) => {
+    //             console.log(value)
+    //             setTimeout(() => {
+    //                 $(value).stop().addClass('is-animated');
+    //             }, i * 500); // 各要素の遅延を調整
+    //         })
+    //     }
+    // });
 
     // skillセクションのアニメーション
     const skills = document.querySelectorAll('.skill');
@@ -267,14 +264,21 @@ $(function () {
                 $(this).toggleClass('active');
                 $(".sp-nav").toggleClass('active', $(this).hasClass('active')); // openbtnがactiveの時にsp-navを表示
             });
-        
+
             // sp-nav内のリンクがクリックされた時にsp-navを非表示にする
             $(".sp-nav a").click(function () {
                 $(".openbtn").removeClass('active'); // openbtnのactiveを解除
                 $(".sp-nav").removeClass('active');  // sp-navのactiveを解除
             });
-
         });
-       
 
-
+    $(window).scroll(function (){
+    $(".line-color").each(function(){
+      var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
+      var scroll = $(window).scrollTop(); //スクロールの位置を取得
+      var windowHeight = $(window).height(); //ウインドウの高さを取得
+      if (scroll > position - windowHeight){ //スクロール位置が要素の位置を過ぎたとき
+        $(this).addClass('is-active'); //クラス「active」を与える
+      }
+    });
+});
