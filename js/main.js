@@ -231,10 +231,11 @@ $(function () {
     //         observer.observe(aboutText);
     //     }
     // }
-    $('.line_wrap').on('inview',  function (event, isInView, index) {
+    $('.line').on('inview',  function (event, isInView, index) {
         if (isInView) {
             const $el = $(this);
-            $el.children('.line').each((i, value) => {
+            // $el.stop().addClass('is-animated')
+            $el.each((i, value) => {
                 console.log(value)
                 setTimeout(() => {
                     $(value).stop().addClass('is-animated');

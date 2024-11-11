@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <!-- reset-->
+   <link rel="stylesheet" href="https://unpkg.com/ress@5.0.2/dist/ress.min.css">
+   <!-- css -->
+   <link rel="stylesheet" href="./css/style.css">
+   <!-- j Query -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <style>
+    .test {
+      margin-top: 1000px;
+      margin-bottom: 2000px;
+    }
+    .test_text {
+      opacity: 0;
+      /* 初期状態は透明 */
+      transform: translateY(20px);
+      /* 下にずらす */
+      transition: opacity 3s ease, transform 3s ease;
+      /* アニメーションの効果 */
+      will-change: opacity, transform; /* Safariでの再描画を安定させる */
+    }
+
+    .test_text.is-animated {
+        opacity: 1;
+        /* アニメーション後は不透明に */
+        transform: translateY(0);
+        /* 元の位置に戻す */
+    }
+   </style>
+</head>
+<body>
+  <div class="test">
+    <span class="test_text">視覚的な美しさだけでなく、そこに込められたストーリーや想いを大事にし、それぞれの背景やメッセージを深く理解し、</span>
+    <span class="test_text">デザインを通じてその魅力を最大限し心に響くデザインを大切にしています。<br><br></span>
+    
+    <span class="test_text">IPOULUという名前は、ハワイ語で「大切な人」と「成長する」を意味し、デザインを通じて共に成長していくことを目指しています。</span>
+    <span class="test_text">トレンドに左右されることなく、永続的に愛されるデザインを、丁寧に向き合いながら、それぞれの魅力やメッセージで彩ります。<br><br></span>
+  
+    <span class="test_text">デザインを通じて、あなたの個性やビジョンを形にし、共に歩み、成長する存在でありたいと考えています。</span>
+  </div>
+  <script src="./js/jquery.inview.min.js"></script>
+  <script>
+    $(window).on('load', function () {
+      $('.test_text').on('inview',  function (event, isInView, index) {
+          if (isInView) {
+              const $el = $(this);
+              // $el.stop().addClass('is-animated')
+              $el.each((i, value) => {
+                  console.log(value)
+                  setTimeout(() => {
+                      $(value).stop().addClass('is-animated');
+                  }, i * 500); // 各要素の遅延を調整
+              })
+          }
+      });
+    });
+  </script>
+</body>
+</html>
