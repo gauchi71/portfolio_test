@@ -8,8 +8,7 @@
 
 /*利用するタグによってこちらの内容は増やす*/
 html,
-body {
-    position: relative;
+.animation {
     overflow-x: hidden;
     /* 横スクロールを非表示にする */
 
