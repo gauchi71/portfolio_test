@@ -49,16 +49,16 @@ stroke = new Vivus('mask', { // アニメーションをするIDの指定
 // ページが読み込まれた時の処理
 $(window).on('load', function () {
     // 平垣内追加部分 inView.js
-    // $('.line').on('inview',  function (event, isInView, index) {
-    //     if (isInView) {
-    //         const $el = $(this);
-    //         $el.each((i, value) => {
-    //             // setTimeout(() => {
-    //                 $(value).stop().addClass('is-animated');
-    //             // }, i * 500);
-    //         })
-    //     }
-    // });
+    $('.line').on('inview',  function (event, isInView, index) {
+        if (isInView) {
+            const $el = $(this);
+            $el.each((i, value) => {
+                // setTimeout(() => {
+                    $(value).stop().addClass('is-animated');
+                // }, i * 500);
+            })
+        }
+    });
     const currentURL = window.location.href;
 
     // URLに"#"が含まれていない場合にのみ処理を実行
@@ -219,25 +219,25 @@ $(function () {
         });
     });
     // aboutセクションのアニメーション
-    const lines = document.querySelectorAll('.line');
-    if (lines.length) {
-        const aboutText = document.querySelector('.about-text');
-        if (aboutText) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        lines.forEach((line, index) => {
-                            setTimeout(() => {
-                                line.classList.add('is-animated');
-                            }, index * 300);
-                        });
-                        observer.disconnect();
-                    }
-                });
-            });
-            observer.observe(aboutText);
-        }
-    }
+    // const lines = document.querySelectorAll('.line');
+    // if (lines.length) {
+    //     const aboutText = document.querySelector('.about-text');
+    //     if (aboutText) {
+    //         const observer = new IntersectionObserver(entries => {
+    //             entries.forEach(entry => {
+    //                 if (entry.isIntersecting) {
+    //                     lines.forEach((line, index) => {
+    //                         setTimeout(() => {
+    //                             line.classList.add('is-animated');
+    //                         }, index * 300);
+    //                     });
+    //                     observer.disconnect();
+    //                 }
+    //             });
+    //         });
+    //         observer.observe(aboutText);
+    //     }
+    // }
 
 
     // skillセクションのアニメーション
