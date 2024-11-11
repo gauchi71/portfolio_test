@@ -832,6 +832,10 @@ h3 {
 .line:not(:last-child) {
     margin-bottom: 20px;
 }
+#about .line.line-color {
+    display: inline;
+    margin: 0;
+}
 
 .line.is-animated {
     opacity: 1;
