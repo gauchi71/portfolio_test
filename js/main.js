@@ -228,14 +228,15 @@ $(function () {
     //     }
     // }
 
+    // 平垣内追加部分 inView.js
     $('.line').on('inview',  function (event, isInView, index) {
         if (isInView) {
             const $el = $(this);
             $el.each((i, value) => {
-                console.log(value)
-                setTimeout(() => {
+                // console.log(value)
+                // setTimeout(() => {
                     $(value).stop().addClass('is-animated');
-                }, i * 500); // 各要素の遅延を調整
+                // }, i * 500);
             })
         }
     });
