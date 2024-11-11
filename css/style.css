@@ -827,6 +827,7 @@ h3 {
     /* 下にずらす */
     transition: opacity 3s ease, transform 5s ease;
     /* アニメーションの効果 */
+    will-change: opacity, transform; /* Safari */
 }
 
 .line.is-animated {

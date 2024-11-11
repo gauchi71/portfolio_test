@@ -21,8 +21,8 @@
       transform: translateY(20px);
       /* 下にずらす */
       transition: opacity 3s ease, transform 3s ease;
-      /* アニメーションの効果 */
-      will-change: opacity, transform; /* Safariでの再描画を安定させる */
+
+      will-change: opacity, transform; /* Safari */
     }
 
     .test_text.is-animated {
