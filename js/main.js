@@ -208,38 +208,38 @@ $(function () {
         });
     });
     // aboutセクションのアニメーション
-    const lines = document.querySelectorAll('.line');
-    if (lines.length) {
-        const aboutText = document.querySelector('.about-text');
-        if (aboutText) {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        lines.forEach((line, index) => {
-                            setTimeout(() => {
-                                line.classList.add('is-animated');
-                            }, index * 500);
-                        });
-                        observer.disconnect();
-                    }
-                });
-            });
-            observer.observe(aboutText);
-        }
-    }
-
-    // $('.line').on('inview',  function (event, isInView, index) {
-    //     if (isInView) {
-    //         const $el = $(this);
-    //         // $el.stop().addClass('is-animated')
-    //         $el.each((i, value) => {
-    //             console.log(value)
-    //             setTimeout(() => {
-    //                 $(value).stop().addClass('is-animated');
-    //             }, i * 500); // 各要素の遅延を調整
-    //         })
+    // const lines = document.querySelectorAll('.line');
+    // if (lines.length) {
+    //     const aboutText = document.querySelector('.about-text');
+    //     if (aboutText) {
+    //         const observer = new IntersectionObserver(entries => {
+    //             entries.forEach(entry => {
+    //                 if (entry.isIntersecting) {
+    //                     lines.forEach((line, index) => {
+    //                         setTimeout(() => {
+    //                             line.classList.add('is-animated');
+    //                         }, index * 500);
+    //                     });
+    //                     observer.disconnect();
+    //                 }
+    //             });
+    //         });
+    //         observer.observe(aboutText);
     //     }
-    // });
+    // }
+
+    $('.line').on('inview',  function (event, isInView, index) {
+        if (isInView) {
+            const $el = $(this);
+            // $el.stop().addClass('is-animated')
+            $el.each((i, value) => {
+                console.log(value)
+                setTimeout(() => {
+                    $(value).stop().addClass('is-animated');
+                }, i * 500); // 各要素の遅延を調整
+            })
+        }
+    });
 
     // skillセクションのアニメーション
     const skills = document.querySelectorAll('.skill');
