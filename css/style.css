@@ -7,7 +7,9 @@
 /* cssリセット */
 
 /*利用するタグによってこちらの内容は増やす*/
-html {
+html,
+body {
+    position: relative;
     overflow-x: hidden;
     /* 横スクロールを非表示にする */
 }
