@@ -237,7 +237,7 @@ $(function () {
             $el.children('.line').each((i, value) => {
                 console.log(value)
                 setTimeout(() => {
-                    $(value).addClass('is-animated');
+                    $(value).stop().addClass('is-animated');
                 }, i * 500); // 各要素の遅延を調整
             })
         }
