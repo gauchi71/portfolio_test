@@ -1,84 +1,114 @@
 @charset "utf-8";
 
-/* 初期状態で確認画面非表示 */
-#confirm {
-  display: none;
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+  background-color: #fcf2e5;
+  margin: 0;
+  transition: 0.5s;
+}
+
+.main_visual {
+    position: relative;
+    overflow: hidden;
+}
+
+.main_visual_message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.dotted_line {
+    position: absolute;
+    width: 84%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cloud_left {
+    position: absolute;
+    width: 27%;
+    left: -10%;
+    top: 43%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    animation-delay: 0.7s; 
+}
+
+.cloud_right {
+    position: absolute;
+    width: 30%;
+    right: -10%;
+    top: 45%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+}
+
+.cloud_center_left {
+    position: absolute;
+    width: 25%;
+    left: 10%;
+    top: 22%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    animation-delay: 0.3s; 
+}
+
+.cloud_center_right {
+    position: absolute;
+    width: 20%;
+    right: 10%;
+    top: 10%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    animation-delay: 1.2s;
+}
+
+@keyframes floating-y {
+    0% {
+        transform: translateY(-2%); /* 上に少し浮かぶ */
+    }
+    100% {
+        transform: translateY(3%); /* 下に少し浮かぶ */
+    }
 }
 
 
-
-
-
-/* --------フォームの見た目調整-------- */
-h2 {
-  text-align: center;
-}
-.c-form {
-	max-width: 600px;
-	margin: 0 auto;
-}
-.c-form__item {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	margin-bottom: 20px;
-}
-.c-form__label,
-.c-form__input {
-	padding: 10px;
-}
-.c-form__label {
-	width: 90%;
-}
-.c-form__input {
-	width: 90%;
-	font-size: 16px;
-	border: solid 1px #333;
-	border-radius: 4px;
-}
-.c-form__input:focus-visible {
-	outline: green auto 1px;
-}
-.c-form__required {
-	color: #fff;
-	background-color: green;
-	border-radius: 4px;
-	padding: 5px 5px;
-	margin: 0 0 0 18px;
-}
-textarea.c-form__input {
-	height: 160px;
-}
-.c-form__submit {
-	text-align: center;
-}
-.c-form__submit button {
-	font-size: 18px;
-	font-weight: bold;
-	color: #fff;
-	background-color: green;
-	border: solid 1px green;
-	border-radius: 4px;
-	padding: 5px 32px;
-	transition: 0.4s;
-	cursor: pointer;
-}
-.c-form__submit button:hover {
-	color: green;
-	background-color: transparent;
+.line {
+  width: 90%;
+  height: 75%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 0 0/100% 100% 0 0;
+  /* border: 3px solid black; */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-@media (min-width: 640px) {
-	.c-form__item {
-		flex-wrap: nowrap;
-	}
-	.c-form__label {
-		width: 40%;
-	}
-	.c-form__input {
-		width: 55%;
-	}
+.sun {
+  position: absolute;
+  width: 18%;
+  top: 25%;
+  left: 50%;
+  z-index: 1;
+  cursor: pointer;
 }
-/* -------------------------------- */
 
+.moon {
+  position: absolute;
+  width: 23%;
+  left: 0;
+  top: 38%;
+  cursor: pointer;
+}
 
+body.night {
+  background-color: gray;
+}
