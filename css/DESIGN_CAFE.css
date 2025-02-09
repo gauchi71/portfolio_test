@@ -1,0 +1,79 @@
+@charset "uft-8";
+
+.cafe_jg_pc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 449px;
+}
+
+.cafe_jg_sp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 155px;
+}
+
+.cafe_url {
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.cafe_url a {
+    padding-top: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cafe_url_btn {
+    position: relative;
+}
+
+.btn_circle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #FFD63A;
+    border-radius: 50%;
+}
+
+.btn_arrow {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 30%;
+    left: 24%;
+    border-top: 3px solid #FFFCEE;
+    border-right: 3px solid #FFFCEE;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.cafe_url_text {
+    padding-left: 8px;
+    font-size: 18px;
+}
+
+.sp_nav {
+    display: none;
+}
+
+@media screen and (max-width: 390px) {
+    .pre_mk_img {
+        margin-top: 57px;
+    }
+
+    .works_page_title p {
+        padding-bottom: 43px;
+    }
+
+    .cafe_url_text {
+        font-size: 16px;
+    }
+
+    .pre_memo {
+        margin: 13px;
+    }
+
+}

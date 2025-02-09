@@ -1,137 +1,450 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <!-- jQueryUIのCDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASU DESIGN | portfolio</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        (function (d) {
+            var config = {
+                kitId: 'foc2zpw',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./script/jquery.inview.min.js"></script>
 </head>
+
 <body>
-  <div class="main_visual" id="header">
-    <img src="./image/morning/background_morning.svg" alt="昼の空">
-    <img src="./image/morning/sun.svg" class="sun" alt="太陽">
-    <img src="./image/morning/moon.svg" class="moon" alt="月">
-    <div class="line"></div>
-    <img src="./image/morning/tensen_morning.svg" class="dotted_line" alt="点線">
-    <img src="./image/morning/cloud_left.svg" class="cloud_left" alt="雲_左">
-    <img src="./image/morning/cloud_center_right.svg" class="cloud_right" alt="雲_右">
-    <img src="./image/morning/cloud_center_left.svg" class="cloud_center_left" alt="雲_中央左">
-    <img src="./image/morning/cloud_center_right.svg" class="cloud_center_right" alt="雲_中央右">
-    <p class="main_visual_message">太陽が沈むと、夜が静かに訪れる</p>
-  </div>
+    <header id="Header">
+        <div class="Header_wrap">
+            <div class="logo">
+                <h1>
+                    <a href="./index.html">
+                        <img src="images/SVG/logo.svg" alt="ASU DESIGNの緑ロゴ">
+                    </a>
+                </h1>
+            </div>
+            <nav class="pc_nav">
+                <ul class="pc_nav-menu">
+                    <li>
+                        <a href="./index.html">
+                            <span>HOME</span>
+                            <span>ホーム</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./works.html">
+                            <span>WORKS</span>
+                            <span>つくったもの</span></a>
+                    </li>
+                    <li>
+                        <a href="./about.html">
+                            <span>ABOUT</span>
+                            <span>わたしについて</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                            <span>CONTACT</span>
+                            <span>お問合わせ</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sp_btn">
+                <span></span>
+            </div>
+            <nav class="sp_nav">
+                <ul class="sp_nav-menu">
+                    <li>
+                        <a href="./index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="./works.html">WORKS</a>
+                    </li>
+                    <li>
+                        <a href="./about.html">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="#contact">CONTACT</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="top">
+        <div class="main_visual_wrap">
+            <div class="main_title_inner">
+                <div class="main_title_on">
+                    <img src="images/SVG/fv_title.svg" alt="ASUNA PORTFOLIO">
+                </div>
+                <div class="main_title_off">
+                    <img src="images/SVG/fv_title_off.svg" alt="ASUNA PORTFOLIO">
+                </div>
 
-<script>
-  $(function () {
-    var $line = $(".line")
-    var $sun = $(".sun")
-    var $moon = $(".moon")
+                <div class="swichOn_inner">
+                    <div class="toggleButton_on">
+                        <span class="checkbox"></span>
+                    </div>
 
-    
-    function sunToMoon () {
-      var lineWidth = $line.width()
-      var lineHeight = $line.height()
-      var radius = lineWidth / 2 // 半円の半径
-      var centerX = $line.offset().left + radius // 半円の中心x座標
-      var centerY = $line.offset().top + lineHeight // 半円の中心y座標
-  
-      var sunWidth = $sun.width() / 2 // sunの半径（画像の横幅の半分）
-      var moonWidth = $moon.width() / 2 // moonの半径（画像の横幅の半分）
-  
-      // sunの初期位置
-      var initialSunX = centerX - sunWidth
-      var initialSunY = centerY - radius - sunWidth / 2
-      // パーセンテージで初期位置をCSSに反映
-      $sun.css({ 
-          left: (initialSunX / $(window).width()) * 100 + "%", 
-          top: (initialSunY / $(window).height()) * 100 + "%" 
-      })
-  
-      // moonの初期位置
-      var initialMoonX = centerX - radius - moonWidth / 2
-      var initialMoonY = centerY - radius / 2
-  
-      $moon.css({ 
-          left: (initialMoonX / $(window).width()) * 100 + "%", 
-          top: (initialMoonY / $(window).height()) * 100 + "%" 
-      })
-  
-      // sunとmoonの初期位置の角度差を計算
-      var sunAngle = Math.atan2(initialSunY - centerY, initialSunX - centerX) // sunの初期角度
-      var moonAngle = Math.atan2(initialMoonY - centerY, initialMoonX - centerX) // moonの初期角度
-      var angleDifference = sunAngle - moonAngle + 0.28 // sunとmoonの初期角度差
-      $sun.draggable({
-          drag: function (event, ui) {
-              // sunの座標
-              var x = ui.position.left + sunWidth - centerX
-              var y = centerY - (ui.position.top + sunWidth)
-  
-              // 半円の範囲 (-90° ~ 90°) の角度
-              var angle = Math.atan2(y, x)
-              if (angle < -Math.PI / 2) angle = -Math.PI / 2
-              if (angle > Math.PI / 2) angle = Math.PI / 2
-  
-              // sunの新しい座標
-              var newX = centerX + radius * Math.cos(angle) - sunWidth
-              var newY = centerY - radius * Math.sin(angle) - sunWidth * 0.7
-  
-              // sunの位置を設定
-              ui.position.left = newX
-              ui.position.top = newY
-  
-              // moonの角度
-              var moonNewAngle = angle + angleDifference // sunの角度から初期角度差を引く
-  
-              // moonの新しい座標
-              var moonX = centerX + radius * Math.cos(moonNewAngle) - moonWidth * 0.7
-              var moonY = centerY - radius * Math.sin(moonNewAngle) - moonWidth * 0.7
-  
-              // moonの位置を設定
-              $moon.css({
-                  left: (moonX / $(window).width()) * 100 + "%",
-                  top: (moonY / $(window).height()) * 100 + "%"
-              })
-  
-              // 月が中央上部にきたとき
-              if ($moon.offset().left + moonWidth > centerX) {
-                  $sun.draggable("disable")
+                    <div class="swichOn_face">
+                        <img src="images/SVG/fv_on_face.svg" alt="スイッチオンの笑顔">
+                    </div>
+                    <div class="swichOff_face">
+                        <img src="images/SVG/fv_off_face.svg" alt="スイッチオフの顔">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loop_text">
+            <ul>
+                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
+                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
+                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
+            </ul>
+            <ul>
+                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
+                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
+                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
+            </ul>
+        </div>
+    </section>
+    <main>
+        <section id="concept">
+            <div class="concept_text">
+                <p class="catch_1">「心のスイッチ」が<br />
+                    <span class="font_style">ON</span>になるデザインを。
+                </p>
+                <p class="catch_2">人は心のスイッチがONになった時、<br />
+                    ワクワクする、楽しそう、やってみたい<br />
+                    と心と体が動きます。<br />
+                    心のスイッチがONになるデザインで<br />
+                    誰かの人生を豊かにしたい。<br />
+                </p>
+            </div>
+            <div class="concept_ling">
+                <div class="inview fadeIn_left">
+                    <div class="GREEN_Box ">
+                        <span class="YELLOW_cicle1"></span>
+                    </div>
+                </div>
+                <div class="inview fadeIn_right">
+                    <div class="RED_Box">
+                        <span class="YELLOW_cicle2"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skill_works">
+            <div class="skill_wrap">
+                <div class="skill_title">
+                    <h2>
+                        <img src="images/SVG/pc_ct_skill.svg" alt="SKILLのコンテンツ名">
+                    </h2>
+                    <p>できること</p>
+                </div>
+                <div class="skill_inner">
+                    <div class="skill_design">
+                        <h3>DESIGN</h3>
+                        <p class="text_jp">デザイン</p>
+                        <img src="images/SVG/skill_ds_illust.svg" alt="黄色のデザインアイコン">
+                        <p class="skill_text">
+                            Webサイト、LP、バナー制作をメインに承ります。お客様の要望を丁寧にヒアリングし、デザインしていきます。イメージやコピーなどもご提案しますのでお気軽にご相談してください。</p>
+                        <div class="slill_tool">
+                            <ul>
+                                <li>Illustrator</li>
+                                <li>Photoshop</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="skill_coding">
+                        <h3>CODING</h3>
+                        <p class="text_jp">コーディング</p>
+                        <img src="images/SVG/skill_cd_illust.svg" alt="黄色のコーディングアイコン">
+                        <p class="skill_text">
+                            HTML、CSSを使用しレスポンシブにも対応したコーディングができます。<br />また、JavaScripやjQueryを使用してサイトに動きをつけることも可能です。</p>
+                        <div class="slill_tool">
+                            <ul>
+                                <li>VSCode</li>
+                                <li>GitHub</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="works">
+                <h2>
+                    <img src="images/SVG/pc_ct_works.svg" alt="ワークスのコンテンツ名">
+                </h2>
+                <p>つくったもの</p>
+            </div>
+            <div class="slider">
+                <ul class="slider_inner">
+                    <li class="mk_box">
+                        <a href="./ASU_DESIGN.html">
+                            <img src="images/2x/works_asudesign@2x.png" alt="ASU DESIGNモックアップ">
+                        </a>
+                    </li>
+                    <li class="mk_box">
+                        <a href="./DESIGN_CAFE.html">
+                            <img src="images/2x/works_designcafe@2x.png" alt="DESIGN CAFEモックアップ">
+                        </a>
+                    </li>
+                    <li class="mk_box2">
+                        <a href="./LIFE_hair_design.html">
+                            <img src="images/2x/works_hairdesign@2x.png" alt="LIFE hair designモックアップ">
+                        </a>
+                    </li>
+                    <li class="mk_box2">
+                        <a href="./burger_shop.html">
+                            <img src="images/2x/works_burger_shop@2x.png" alt="バーガーショップモックアップ">
+                        </a>
+                    </li>
 
-                  $moon.css({
-                    left: centerX - moonWidth,
-                    top: centerY - radius - moonWidth * 0.75
-                  })
+                    <li class="mk_box">
+                        <a href="./trrrrip.html">
+                            <img src="images/2x/works_TRRRRIP@2x.png" alt="TRRRRIP.モックアップ">
+                        </a>
+                    </li>
+                    <li class="mk_box">
+                        <a href="./dezasuta_mb.html">
+                            <img src="images/2x/works_dezasuta@2x.png" alt="デザスタmobileモックアップ">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="works_btn">
+                <div>
+                    <p><a href="./works.html">MORE</a></p>
+                </div>
 
-                  // ナイトモードに変更（bodyにnightクラス追加）
-                  $('body').addClass('night')
+                <div class="check_btn">
+                    <span></span>
+                </div>
 
-                  $sun.draggable('enable')
+            </div>
+        </section>
+        <section id="about">
+            <div class="about_wrap">
+                <div class="about_title">
+                    <h2>
+                        <img src="images/SVG/pc_ct_about.svg" alt="アバウトのコンテンツ名">
+                    </h2>
+                    <p>わたしについて</p>
+                </div>
+                <div class="about_btn">
+                    <div class="about_btn_inner">
+                        <div class="about_check_btn">
+                            <a href="./about.html">
+                                <img src="images/2x/top_about@2x.webp" alt="子供を抱っこしている写真">
+                            </a>
+
+                            <div class="click_text">
+                                <img src="images/SVG/pc_about_cliclme.svg" alt="英語でクリックミーの文字">
+                            </div>
+                        </div>
+                        <div class="about_text_box">
+                            <p class="about_text1">ASUNA</p>
+                            <p class="about_text2">はじめまして！あすなです。<br
+                                    class="sp_br">つくるもので人と人の想いがつながって、その先に幸せな気持ちが生まれる。想いをつなぐお手伝いをさせてください。
+                            </p>
+                        </div>
+                        <p class="about_more">もっと詳しく見る！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact_wrap">
+                <div class="contact_title">
+                    <h2>
+                        <img src="images/SVG/pc_contact.svg" alt="コンタクトのコンテンツ名">
+                    </h2>
+                    <p>お問い合わせ</p>
+                </div>
+                <p class="contact_text">
+                    web制作、その他デザイン制作に関するご依頼・ご相談は<br />こちらからお願いします。<br />
+                    24時間以内に返信いたします。
+                </p>
+
+
+                <form class="c-form"
+                    action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScpFFUts4O7oR3_VZ5z1Q2akkC6Tyrw7nTxWE6VagU_RSCmBw/formResponse"
+                    method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                    <div class="c-form__item">
+                        <label class="c-form__label" for="field-name">名前<span class="c-form__required">必須</span></label>
+                        <input name="entry.494945336" class="c-form__input" id="field-name" placeholder="例）山田 太郎"
+                            type="text" required="required" />
+                    </div>
+                    <div class="c-form__item">
+                        <label class="c-form__label" for="field-name">ふりがな<span
+                                class="c-form__required">必須</span></label>
+                        <input name="entry.806481751" class="c-form__input" id="field-furigana" placeholder="例）やまだ たろう"
+                            type="text" required="required" />
+                    </div>
+                    <div class="c-form__item">
+                        <label class="c-form__label" for="field-name">会社名/団体名</label>
+                        <input name="entry.732372047" class="c-form__input" id="field-company" placeholder="例）デザイン会社"
+                            type="text" />
+                    </div>
+                    <div class="c-form__item">
+                        <label class="c-form__label" for="field-mail">メールアドレス<span
+                                class="c-form__required">必須</span></label>
+                        <input name="entry.1779529453" class="c-form__input" id="field-mail"
+                            placeholder="sample@gmail.com" type="email" required="required" />
+                    </div>
+                    <div class="c-form__item">
+                        <label class="c-form__label" for="field-message">お問い合わせ内容<span
+                                class="c-form__required">必須</span></label>
+                        <textarea name="entry.833369709" class="c-form__input" id="field-message" placeholder="お問い合わせ内容"
+                            required="required"></textarea>
+                    </div>
+                    <div class="send_btn">
+                        <div class="c-form__submit">
+                            <button type="submit">SEND</button>
+                            <div class="send_check_btn">
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </section>
+        <footer id="Footer">
+            <div class="footer-wrap">
+                <div class="footer-logo">
+                    <h1>
+                        <a href="./index.html">
+                            <img src="images/SVG/logo_footer.svg" alt="白のASU DESIGNのロゴ">
+                        </a>
+                    </h1>
+                </div>
+                <div class="footer-list">
+                    <ul>
+                        <li><a href="./index.html">HOME</a></li>
+                        <li><a href="./works.html">WORKS</a></li>
+                        <li><a href="./about.html">ABOUT</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>©2025 ASU DESIGN</p>
+        </footer>
+    </main>
+    <script type="text/javascript">
+        let submitted = false;
+    </script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"
+        onload="if(submitted){window.location='./thanks.html';}"></iframe>
+
+    <script>
+
+        $(function () {
+            $('.sp_btn').on('click', function () {
+                $('.sp_btn').toggleClass('open');
+                $('.sp_nav').fadeToggle();
+            })
+        });
+
+        //コンセプトの円//
+        $(function () {
+            $(".inview").on("inview", function (event, isInView) {
+                if (isInView) {
+                    $(this).stop().addClass("is-show");
                 }
+            });
+        });
 
-                // ナイトモードの状態で、太陽が中央上部にきたとき
-                if ($('body').hasClass('night') && ui.position.left + sunWidth == centerX) {
-                  // ナイトモードを解除
-                  $('body').removeClass('night')
+        $('.slider_inner').slick({
+            autoplay: true,//自動的に動き出すか。初期値はfalse。
+            infinite: true,//スライドをループさせるかどうか。初期値はtrue。
+            slidesToShow: 4,//スライドを画面に3枚見せる
+            slidesToScroll: 1,//1回のスクロールで3枚の写真を移動して見せる
+            // prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
+            // nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 940,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 690,//モニターの横幅が769px以下の見せ方
+                    settings: {
+                        slidesToShow: 1,//スライドを画面に2枚見せる
+                        slidesToScroll: 1,//1回のスクロールで2枚の写真を移動して見せる
+                    }
+                },
+            ]
+        });
+
+
+        $('.works_btn').hover(
+            function () {
+                $(this).find('a').text('もっと!')
+            },
+            function () {
+                $(this).find('a').text('MORE')
+            }
+        );
+
+        $('.c-form__submit').hover(
+            function () {
+                $(this).find('button').text('送る')
+            },
+            function () {
+                $(this).find('button').text('SEND')
+            }
+        );
+
+        window.onload = function(){
+        var touch = 'ontouchstart' in document.documentElement
+            || navigator.maxTouchPoints > 0
+            || navigator.msMaxTouchPoints > 0;
+
+        if (touch) {
+            try {
+                for (var si in document.styleSheets) {
+                    var styleSheet = document.styleSheets[si];
+                    if (!styleSheet.rules) continue;
+
+                    for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                        if (!styleSheet.rules[ri].selectorText) continue;
+
+                        if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                            styleSheet.deleteRule(ri);
+                        }
+                    }
                 }
-          },
-          containment: "parent"
-      })
+            } catch (ex) { }
+        }
     }
+    </script>
 
-    sunToMoon()
-
-    // ウィンドウ幅が変更された際も正しく動くように設定
-    $(window).on('resize', function () {
-      sunToMoon()
-    })
-
-
-
-
-  })
-</script>
 </body>
+
 </html>
