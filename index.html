@@ -381,6 +381,24 @@
                         }
                     // }
                 } catch (ex) { }
+            } else {
+                $('.works_btn').hover(
+                    function () {
+                        $(this).find('a').text('もっと!')
+                    },
+                    function () {
+                        $(this).find('a').text('MORE')
+                    }
+                );
+
+                $('.c-form__submit').hover(
+                    function () {
+                        $(this).find('button').text('送る')
+                    },
+                    function () {
+                        $(this).find('button').text('SEND')
+                    }
+                );
             }
         });
 
@@ -426,23 +444,7 @@
         });
 
 
-        $('.works_btn').hover(
-            function () {
-                $(this).find('a').text('もっと!')
-            },
-            function () {
-                $(this).find('a').text('MORE')
-            }
-        );
-
-        $('.c-form__submit').hover(
-            function () {
-                $(this).find('button').text('送る')
-            },
-            function () {
-                $(this).find('button').text('SEND')
-            }
-        );
+        
 
         
     </script>
