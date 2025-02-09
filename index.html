@@ -425,7 +425,7 @@
         var touch = 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
             || navigator.msMaxTouchPoints > 0;
-
+            console.log(touch)
         if (touch) {
             try {
                 for (var si in document.styleSheets) {
