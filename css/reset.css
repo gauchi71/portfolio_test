@@ -53,3 +53,11 @@ body {
     font-family: "heisei-maru-gothic-std", sans-serif;
 
 }
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+    background-color: #FFD63A;
+    opacity: 0.8;
+}

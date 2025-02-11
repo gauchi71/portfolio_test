@@ -1622,15 +1622,3 @@ textarea.c-form__input {
     transform: rotate(45deg);
     opacity: 1;
 }
-
-.slick-prev:hover,
-.slick-next:hover {
-    background-color: #FFD63A;
-    opacity: 0.8;
-}
-
-.slick-prev:focus,
-.slick-next:focus {
-    background-color: #FFD63A;
-    opacity: 0.8;
-}
