@@ -355,7 +355,6 @@ a:hover span:nth-child(1) {
     animation-name: flowing;
     animation-delay: 3.8s;
     animation: flowing 50s linear infinite;
-    line-height: 1.5;
 }
 
 .loop_text ul li {
@@ -364,6 +363,7 @@ a:hover span:nth-child(1) {
     font-weight: 800;
     color: #FCF7E0;
     padding-right: 10px;
+    line-height: 1.5;
 }
 
 @keyframes flowing {
