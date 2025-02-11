@@ -321,7 +321,7 @@ a:hover span:nth-child(1) {
     background: #ffd63a;
     display: flex;
     height: 75px;
-    line-height: 40px;
+    /* line-height: 40px; */
     overflow: hidden;
     width: 100%;
     white-space: nowrap;
@@ -355,6 +355,7 @@ a:hover span:nth-child(1) {
     animation-name: flowing;
     animation-delay: 3.8s;
     animation: flowing 50s linear infinite;
+    line-height: 1.5;
 }
 
 .loop_text ul li {
@@ -1203,7 +1204,7 @@ textarea.c-form__input {
 
     .loop_text {
         height: 50px;
-        line-height: 40px;
+        /* line-height: 40px; */
 
     }
 
