@@ -37,17 +37,27 @@
             return hour;
         }
 
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+            return matches ? decodeURIComponent(matches[1]) : null;
+        }
+
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+
         // 時間帯によってページをリダイレクト
         function redirectBasedOnTime() {
             let hour = getCurrentTime();
 
             // 9時から18時の間は「index.html」、それ以外の時間帯は「index_night.html」にリダイレクト
-            console.log(localStorage)
-            console.log(localStorage.getItem("redirected"))
-            console.log(sessionStorage.getItem('loadingviewed'))
-            console.log(sessionStorage.getItem('isFirstLoad'))
-            console.log(sessionStorage)
-            console.log(sessionStorage.getItem('firstVisit'))
+            console.log(getCookie("redirected"))
             // if (!localStorage.getItem("redirected")) {
                 // if (hour >= 9 && hour < 18) {
                 //     window.location.href = "./index.html"; // 日中のページへ遷移
