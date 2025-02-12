@@ -1,0 +1,1038 @@
+@charset "utf-8";
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    transition: 0.5s;
+}
+
+.morning {
+    animation: fadein 3s forwards;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.night {
+    animation: fadein 3s forwards;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+.main_visual {
+    position: relative;
+    overflow: hidden;
+}
+
+.main_visual_morning_sp {
+    display: none;
+}
+
+.wrapper {
+    --_base-height: 95svh;
+    --_note-height: 1lh;
+    min-height: var(--_base-height);
+}
+
+.container {
+    min-height: calc(var(--_base-height) - var(--_note-height));
+    padding-top: var(--_note-height);
+    display: grid;
+    place-content: center;
+}
+
+.text {
+    font-size: max(20px, 5vw);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.note {
+    text-align: right;
+}
+
+.alternative {
+    position: fixed !important;
+    inset: 0 !important;
+    display: block !important;
+    inline-size: 4px !important;
+    block-size: 4px !important;
+    contain: strict !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+}
+
+/* アニメーション前 */
+[data-text-animation="fadeIn"] span {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* アニメーション後 */
+[data-text-animation="fadeIn"] span.is-active {
+    opacity: 1;
+}
+
+/* 背景画像の上にヘッダーを重ねる */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.main_visual_message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+}
+
+@media screen and (max-width: 1000px) {
+    .main_visual_message {
+        font-size: 20px;
+        width: 100%;
+    }
+}
+
+.line {
+    width: 90%;
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 50% 50% 0 0/100% 100% 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.sun {
+    position: absolute;
+    width: 18%;
+    top: 25%;
+    left: 50%;
+    z-index: 1;
+    cursor: pointer;
+    animation: glow 3s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+
+    50% {
+        filter: brightness(1.1);
+        transform: scale(1.05);
+    }
+
+    100% {
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+.moon {
+    position: absolute;
+    width: 20%;
+    cursor: pointer;
+}
+
+.dotted_line {
+    position: absolute;
+    width: 84%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.cloud_left {
+    position: absolute;
+    width: 15%;
+    left: -1%;
+    top: 67%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    animation-delay: 0.7s;
+}
+
+.cloud_right {
+    position: absolute;
+    width: 30%;
+    right: -10%;
+    top: 45%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+}
+
+.cloud_center_left {
+    position: absolute;
+    width: 25%;
+    left: 10%;
+    top: 22%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    animation-delay: 0.3s;
+}
+
+.cloud_center_right {
+    position: absolute;
+    width: 20%;
+    right: 10%;
+    top: 10%;
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    animation-delay: 1.2s;
+}
+
+@keyframes floating-y {
+    0% {
+        transform: translateY(-2%);
+    }
+
+    100% {
+        transform: translateY(3%);
+    }
+}
+
+/* スクロールダウン */
+.scroll-down {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #83ccd4;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.wavy-text span {
+    position: relative;
+    display: inline-block;
+    animation: wave 2s infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+.wavy-text_arrow {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid #83ccd4;
+    border-bottom: 1px solid #83ccd4;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    animation: float 2s infinite;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(-20%) rotate(-45deg);
+    }
+
+    50% {
+        transform: translateY(20%) rotate(-45deg);
+    }
+}
+
+/* about_meセクション */
+.about_me .sub_title,
+.about_me .title,
+.splide .sub_title,
+.splide .title {
+    text-align: center;
+}
+
+.about_me_main {
+    margin-top: 100px;
+    display: flex;
+}
+
+.about_me_photo {
+    width: 50%;
+    position: relative;
+}
+
+.about_me_sentence {
+    max-width: 1000px;
+    /* width: 50%; */
+    padding-right: 5px;
+}
+
+.about_me_hint {
+    position: absolute;
+    top: 60px;
+    right: 20%;
+    max-width: 300px;
+    height: auto;
+    width: 100%;
+}
+
+.tape {
+    max-width: 36px;
+    height: auto;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+}
+
+.tape .cls-3 {
+    fill: #83ccd4;
+}
+
+.back,
+.front {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+    transition: 0.3s;
+    left: 50%;
+}
+
+.front {
+    position: relative;
+}
+
+.card-content {
+    position: relative;
+    transform-origin: center -20px 0;
+    animation: none;
+}
+
+.is-inview .card-content {
+    animation: swing 1.5s ease-in-out;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* 初期状態 */
+.card .back {
+    transform: translateX(-50%) rotateY(-180deg);
+}
+
+/* クリックしたらフロントを裏返す */
+.flip-checkbox_1:checked+.card .front {
+    transform: translateX(-50%) rotateY(180deg);
+}
+
+/* クリックしたらバックを裏返す */
+.flip-checkbox_1:checked+.card .back {
+    transform: translateX(-50%) rotateY(0);
+}
+
+/* 青い円 */
+.click_circle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.click_circle>div {
+    position: relative;
+}
+
+.click_area {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    z-index: 2;
+    background-color: #B0E3E5;
+    border-radius: 50%;
+}
+
+/* 青い円のぼかし効果 */
+.click_area::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #B0E3E5;
+    border-radius: 50%;
+    filter: blur(4px);
+    z-index: -1;
+}
+
+
+/* 「click」文字のスタイル */
+.click_area span {
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+/* 回転するテキスト */
+.circleText {
+    overflow: visible;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    animation: rotation 18s linear infinite;
+}
+
+.circleText__text {
+    fill: #83ccd4;
+    font-size: 12px;
+    letter-spacing: 0.4em;
+}
+
+.circleText__circle {
+    fill: none;
+}
+
+.about_me_morning_1 {
+    max-width: 215px;
+    height: auto;
+    position: absolute;
+    top: -15px;
+    left: -70px;
+    z-index: -1;
+}
+
+.about_me_morning_2 {
+    width: 100%;
+}
+
+.about_me_morning_3 {
+    max-width: 230px;
+    height: auto;
+    position: absolute;
+    top: 300px;
+    left: -30px;
+    z-index: -1;
+}
+
+@media screen and (max-width: 1100px) {
+    .about_me_morning_1 {
+        max-width: 165px;
+        height: auto;
+        top: -15px;
+        left: 5px;
+    }
+
+    .about_me_hint {
+        max-width: 250px;
+    }
+
+    .about_me_morning_3 {
+        max-width: 180px;
+        height: auto;
+        top: 300px;
+        left: 30px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .about_me_sentence {
+        max-width: 60%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .about_me_sentence {
+        max-width: 55%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .about_me_sentence {
+        max-width: 45%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .about_me_sentence {
+        max-width: 40%;
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+}
+
+.about_me_sentence p {
+    line-height: 2.8;
+    max-width: 630px;
+}
+
+.about_me_sentence .blue_heading {
+    height: 20px;
+    padding: 0rem 0.5rem;
+    border-left: 8px solid #83ccd4;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.about_me_sentence_1,
+.about_me_sentence_2 {
+    margin-bottom: 20px;
+}
+
+.about_me_button {
+    margin-top: 50px;
+}
+
+/* worksセクション */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.slash {
+    color: #83ccd4;
+}
+
+.splide__arrows {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+.splide__arrow {
+    width: 40px;
+    height: 40px;
+    background-color: #fcf2e5;
+}
+
+.splide__arrow:hover svg .cls-1 {
+    stroke: #83ccd4;
+    transition: fill 0.5s ease, stroke 0.3s ease;
+}
+
+.splide__arrow:hover svg .cls-2 {
+    fill: #83ccd4;
+    transition: fill 0.5s ease, stroke 0.3s ease;
+}
+
+/* SVGのサイズ調整 */
+.splide__arrow svg {
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+}
+
+.splide {
+    margin: 150px auto;
+}
+
+.splide .title {
+    margin-bottom: 130px;
+}
+
+.works_back {
+    background-color: rgba(212, 139, 131, 0.07);
+    width: 300px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.works_title {
+    font-size: 16px;
+    margin-top: 20px;
+    align-self: flex-start;
+}
+
+.works_button {
+    margin: 60px auto 150px auto;
+}
+
+/* contactセクション */
+.contact {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact_photo {
+    width: 100%;
+    max-width: 500px;
+    padding-left: 20px;
+}
+
+.contact_photo img {
+    width: 100%;
+    height: auto;
+}
+
+.contact_main {
+    max-width: 560px;
+    margin-bottom: 200px;
+    position: relative;
+}
+
+.contact_sentence {
+    max-width: 524px;
+    line-height: 2.8;
+    padding: 20px 10px;
+}
+
+.contact_button {
+    margin-top: 50px;
+    width: 200px;
+}
+
+.splide__slide img {
+    height: auto;
+    width: 85%;
+    object-fit: cover;
+    cursor: pointer;
+    max-width: 500px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.splide__slide img {
+    height: auto;
+    transition: transform .5s ease;
+}
+
+.splide__slide:hover img {
+    transform: scale(1.03);
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 767px) {
+    .main_visual_morning_pc {
+        display: none;
+    }
+
+    .main_visual_morning_sp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .window_sp {
+        position: relative;
+    }
+
+    .window_morning {
+        margin: 50px auto 250px auto;
+        padding: 0px 10px;
+    }
+
+    .shadow_morning {
+        position: absolute;
+        top: 66%;
+        transform: translateX(18%);
+        width: 355px;
+        min-width: 355px;
+    }
+
+    .sun_toMoon {
+        position: absolute;
+        width: 100px;
+        top: 13%;
+        left: 8%;
+    }
+
+    .cloud_left_sp,
+    .cloud_right_sp_1,
+    .cloud_right_sp_2 {
+        position: absolute;
+    }
+
+    .cloud_left_sp {
+        width: 150px;
+        top: 40%;
+        transform: translateX(-30%);
+        animation: floating-left 1.8s ease-in-out infinite alternate-reverse;
+    }
+
+    .cloud_right_sp_1 {
+        width: 138px;
+        top: 20%;
+        transform: translateX(43%);
+        animation: floating-right-1 1.9s ease-in-out infinite alternate-reverse;
+        animation-delay: 0.3s;
+    }
+
+    .cloud_right_sp_2 {
+        width: 100px;
+        top: 50%;
+        transform: translateX(63%);
+        animation: floating-right-2 2s ease-in-out infinite alternate-reverse;
+        animation-delay: 0.7s;
+    }
+
+    /* cloud_left_sp のアニメーション */
+    @keyframes floating-left {
+        0% {
+            transform: translateX(-30%) translateY(0);
+        }
+
+        100% {
+            transform: translateX(-30%) translateY(-10px);
+        }
+
+    }
+
+    /* cloud_right_sp_1 のアニメーション */
+    @keyframes floating-right-1 {
+        0% {
+            transform: translateX(43%) translateY(0);
+        }
+
+        100% {
+            transform: translateX(43%) translateY(-10px);
+        }
+
+    }
+
+    /* cloud_right_sp_2 のアニメーション */
+    @keyframes floating-right-2 {
+        0% {
+            transform: translateX(63%) translateY(0);
+        }
+
+        100% {
+            transform: translateX(63%) translateY(-10px);
+        }
+
+    }
+
+    .main_visual_message {
+        top: 75%;
+    }
+
+    .scroll-down {
+        top: 85%;
+        letter-spacing: 2px;
+    }
+
+    .about_me_main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about_me_hint {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        width: 300px;
+    }
+
+    .about_me_photo {
+        width: 400px;
+    }
+
+    .about_me_morning_1 {
+        left: auto;
+    }
+
+    .about_me_morning_3 {
+        left: 220px;
+    }
+
+    .about_me_sentence {
+        max-width: 85%;
+        margin: 0;
+        padding: 0 10px;
+        margin-top: 600px;
+    }
+
+    .about_me_sentence p {
+        line-height: 1.8;
+    }
+
+    .about_me_button {
+        margin: 60px auto;
+    }
+
+    .splide {
+        margin-top: 60px;
+    }
+
+    .splide__slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .works_back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .works_back img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .works_title {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .contact {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact_main {
+        display: contents;
+    }
+
+    .contact_main .title {
+        margin-bottom: 60px;
+    }
+
+    .contact_sentence {
+        order: 1;
+        line-height: 1.5;
+        padding-top: 30px;
+        max-width: 80%;
+    }
+
+    .contact_photo {
+        padding-right: 20px;
+        max-width: 375px;
+        height: auto;
+    }
+
+    .contact_button {
+        order: 1;
+        margin-bottom: 100px;
+    }
+}
+
+.container {
+    padding: 40px;
+}
+
+.block {
+    width: 160px;
+    height: 160px;
+    margin: auto;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* nightモード */
+body.night {
+    .night_back {
+        width: 100%;
+        height: auto;
+        z-index: 3;
+    }
+
+    .moon {
+        width: 18%;
+        cursor: pointer;
+        animation: glow 3s infinite alternate ease-in-out;
+    }
+    @keyframes glow {
+        0% {
+            filter: brightness(1);
+            transform: scale(1);
+        }
+    
+        50% {
+            filter: brightness(1.5);
+            transform: scale(1.05);
+        }
+    
+        100% {
+            filter: brightness(1);
+            transform: scale(1);
+        }
+    }
+    .sun {
+        position: absolute;
+        width: 15%;
+        cursor: pointer;
+        opacity: 0.7;
+        z-index: 2;
+        animation: none;
+    }
+
+    .dotted_line {
+        top: 50%;
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        z-index: 1;
+    }
+
+    .scroll-down,
+    .pagination {
+        color: #fcf2e5;
+        top: 100%;
+        height: 100px;
+    }
+
+    .wavy-text_arrow {
+        border-left: 1px solid #fcf2e5;
+        border-bottom: 1px solid #fcf2e5;
+    }
+
+    .about_me {
+        margin-top: 150px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .window_sp {
+            position: relative;
+        }
+
+
+        .moon_toSun {
+            position: absolute;
+            width: 100px;
+            top: 13%;
+            left: 8%;
+        }
+
+        .scroll-down {
+            top: 85%;
+        }
+
+        .about_me {
+            margin-top: 10px;
+        }
+    }
+
+    .tape .cls-3 {
+        fill: #061F4B;
+    }
+
+    .about_me_sentence {
+        .blue_heading {
+            border-left: 8px solid #F9F5AC;
+        }
+    }
+
+    .click_area {
+        background-color: #F9F5AC;
+    }
+
+    .click_area span {
+        color: #061F4B;
+    }
+
+    .circleText__text {
+        fill: #F9F5AC;
+    }
+
+    .splide__arrow {
+        background-color: #1C4268;
+    }
+
+    .splide__arrow svg,
+    .cls-1 {
+        stroke: #fcf2e5;
+    }
+
+    .splide__arrow:hover svg .cls-1 {
+        stroke: #F9F5AC;
+        transition: fill 0.5s ease, stroke 0.3s ease;
+    }
+
+    .splide__arrow:hover svg .cls-2 {
+        fill: #F9F5AC;
+        transition: fill 0.5s ease, stroke 0.3s ease;
+    }
+
+    .works_back {
+        background-color: rgba(97, 123, 145, 0.5);
+    }
+}

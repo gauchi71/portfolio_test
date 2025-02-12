@@ -4,451 +4,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASU DESIGN | portfolio</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <title>iROASOBi</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script>
-        (function (d) {
-            var config = {
-                kitId: 'foc2zpw',
-                scriptTimeout: 3000,
-                async: true
-            },
-                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
-        })(document);
-    </script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/common.css">
+    <link id="theme-css" rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!-- slick -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./script/jquery.inview.min.js"></script>
+    <!-- splide -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- inview.jsの読み込み -->
+    <script src="./js/jquery.inview.min.js"></script>
+    <!-- jQueryUIのCDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+        integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+        integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        // 現在の時間を取得
+        function getCurrentTime() {
+            let now = new Date();
+            let hour = now.getHours();
+            return hour;
+        }
+
+        // 時間帯によってページをリダイレクト
+        function redirectBasedOnTime() {
+            let hour = getCurrentTime();
+
+            // 9時から18時の間は「index.html」、それ以外の時間帯は「index_night.html」にリダイレクト
+            if (!localStorage.getItem("redirected")) {
+            if (hour >= 9 && hour < 18) {
+                window.location.href = "./index.html"; // 日中のページへ遷移
+            } else {
+                window.location.href = "./index_night.html"; // 夜間のページへ遷移
+            }
+        }
+        }
+
+        // ページ読み込み時に実行
+        window.onload = redirectBasedOnTime;
+    </script>
 </head>
 
-<body>
-    <header id="Header">
-        <div class="Header_wrap">
-            <div class="logo">
-                <h1>
-                    <a href="./index.html">
-                        <img src="images/SVG/logo.svg" alt="ASU DESIGNの緑ロゴ">
-                    </a>
+<body class="morning">
+    <div class="main_visual" id="header">
+        <div class="main_visual_morning_pc">
+            <img src="./image/morning/background_morning.svg" alt="昼の空">
+            <img src="./image/morning/sun.svg" class="sun" alt="太陽">
+            <img src="./image/morning/moon.svg" class="moon" alt="月">
+            <div class="line"></div>
+            <img src="./image/morning/tensen_morning.svg" class="dotted_line" alt="点線">
+            <img src="./image/morning/cloud_left.svg" class="cloud_left" alt="雲_左">
+            <img src="./image/morning/cloud_center_right.svg" class="cloud_right" alt="雲_右">
+            <img src="./image/morning/cloud_center_left.svg" class="cloud_center_left" alt="雲_中央左">
+            <img src="./image/morning/cloud_center_right.svg" class="cloud_center_right" alt="雲_中央右">
+        </div>
+        <div class="main_visual_morning_sp">
+            <div class="window_sp">
+                <img src="./image/morning/photo/window_morning.png" alt="window_morning" class="window_morning">
+                <div class="sun_toMoon">
+                    <img src="./image/morning/sun.svg" class="sun_sp" alt="太陽">
+                </div>
+            </div>
+            <img src="./image/morning/photo/shadow_morning.png" alt="shadow_morning" class="shadow_morning">
+            <img src="./image/morning/cloud_left_sp.svg" alt="cloud_left_sp" class="cloud_left_sp">
+            <img src="./image/morning/cloud_right_sp_1.svg" alt="cloud_right_sp_1" class="cloud_right_sp_1">
+            <img src="./image/morning/cloud_right_sp_2.svg" alt="cloud_right_sp_2" class="cloud_right_sp_2">
+        </div>
+
+        <p class="main_visual_message text" data-char-span data-text-animation="fadeIn">太陽が沈むと、夜が静かに訪れる</p>
+        <header>
+            <div class="header_left">
+                <h1 class="header_logo">
+                    <a href="./index.html"><img src="./image/morning/logo_morning.png" alt="iROASOBi"></a>
                 </h1>
             </div>
-            <nav class="pc_nav">
-                <ul class="pc_nav-menu">
-                    <li>
-                        <a href="./index.html">
-                            <span>HOME</span>
-                            <span>ホーム</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./works.html">
-                            <span>WORKS</span>
-                            <span>つくったもの</span></a>
-                    </li>
-                    <li>
-                        <a href="./about.html">
-                            <span>ABOUT</span>
-                            <span>わたしについて</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact">
-                            <span>CONTACT</span>
-                            <span>お問合わせ</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="sp_btn">
-                <span></span>
+            <div class="header_right">
+                <div id="navArea">
+                    <nav>
+                        <div class="inner">
+                            <ul>
+                                <li><a href="./aboutMe.html ">about&nbsp;me</a></li>
+                                <li><a href="./works.html">works</a></li>
+                                <li><a href="./contact.html">contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="toggle_btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div id="mask"></div>
+                </div>
+                <div class="mail_icon">
+                    <a href="./contact.html"><img src="./image/morning/mail_icon.svg" alt="mail"></a>
+                </div>
+                <a href="./index.html"><img class="header_logo_vertical" src="./image/morning/logo_morning_tate.png"
+                        alt="iROASOBi"></a>
+                <a href="#header" class="page_up">
+                    <span class="arrow"></span>
+                </a>
             </div>
-            <nav class="sp_nav">
-                <ul class="sp_nav-menu">
-                    <li>
-                        <a href="./index.html">HOME</a>
-                    </li>
-                    <li>
-                        <a href="./works.html">WORKS</a>
-                    </li>
-                    <li>
-                        <a href="./about.html">ABOUT</a>
-                    </li>
-                    <li>
-                        <a href="#contact">CONTACT</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section id="top">
-        <div class="main_visual_wrap">
-            <div class="main_title_inner">
-                <div class="main_title_on">
-                    <img src="images/SVG/fv_title.svg" alt="ASUNA PORTFOLIO">
-                </div>
-                <div class="main_title_off">
-                    <img src="images/SVG/fv_title_off.svg" alt="ASUNA PORTFOLIO">
-                </div>
+        </header>
 
-                <div class="swichOn_inner">
-                    <div class="toggleButton_on">
-                        <span class="checkbox"></span>
+
+        <div class="container_scroll_down">
+            <a href="#" class="scroll-down wavy-text">
+                <span style="--i:1">S</span>
+                <span style="--i:2">c</span>
+                <span style="--i:3">r</span>
+                <span style="--i:4">o</span>
+                <span style="--i:5">l</span>
+                <span style="--i:6">l</span>
+                <span style="--i:7"> </span>
+                <span style="--i:8">D</span>
+                <span style="--i:9">o</span>
+                <span style="--i:10">w</span>
+                <span style="--i:11">n</span>
+                <div class="wavy-text_arrow"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <section class="about_me">
+            <p class="sub_title js-fadeUp">-about&nbsp;me-</p>
+            <h2 class="title js-fadeUp">「 はじめまして、さとうです 」</h2>
+            <div class="about_me_main">
+                <div class="about_me_photo js-fadeUp">
+                    <img src="./image/morning/photo/about_me_morning_1.JPG" alt="about_me_morning_1"
+                        class="about_me_morning_1">
+
+                    <div class="about_me_hint">
+                        <input type="checkbox" id="flip_1" class="flip-checkbox_1" hidden>
+                        <label class="card">
+                            <div class="card-content js-fadeUp">
+                                <svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 36.13 53.89" class="tape">
+                                    <g id="PC">
+                                        <polygon class="cls-3"
+                                            points="36.13 52.87 9.42 53.89 0 .47 26.71 0 36.13 52.87" />
+                                    </g>
+                                </svg>
+                                <div class="front">
+                                    <img src="./image/morning/hint_front.svg" alt="about_me_morning_2"
+                                        class="about_me_morning_2">
+                                </div>
+                                <div class="back">
+                                    <picture>
+                                        <source srcset="./image/morning/photo/hint_back_sp.png"
+                                            media="(max-width:767px)">
+                                        <img src="./image/morning/photo/hint_back.png" alt="about_me_morning_2">
+                                        </source>
+                                    </picture>
+                                </div>
+                                <div class="click_circle">
+                                    <div>
+                                        <label for="flip_1" class="click_area">
+                                            <span>click</span>
+                                        </label>
+                                        <svg class="circleText" viewBox="0 0 100 100">
+                                            <path id="circle" class="circleText__circle"
+                                                d="M 0 50 A 50 50 0 1 1 0 51 z" />
+                                            <text class="circleText__text">
+                                                <textPath xlink:href="#circle">
+                                                    Click here! Click here! Click here!
+                                                </textPath>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
                     </div>
 
-                    <div class="swichOn_face">
-                        <img src="images/SVG/fv_on_face.svg" alt="スイッチオンの笑顔">
-                    </div>
-                    <div class="swichOff_face">
-                        <img src="images/SVG/fv_off_face.svg" alt="スイッチオフの顔">
-                    </div>
+                    <img src="./image/morning/photo/about_me_morning_3.JPG" alt="about_me_morning_3"
+                        class="about_me_morning_3">
                 </div>
-            </div>
-        </div>
-        <div class="loop_text">
-            <ul>
-                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
-                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
-                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
-            </ul>
-            <ul>
-                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
-                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
-                <li>Welcome to my portfolio! Let's explore the switch of the mind together!</li>
-            </ul>
-        </div>
-    </section>
-    <main>
-        <section id="concept">
-            <div class="concept_text">
-                <p class="catch_1">「心のスイッチ」が<br />
-                    <span class="font_style">ON</span>になるデザインを。
-                </p>
-                <p class="catch_2">人は心のスイッチがONになった時、<br />
-                    ワクワクする、楽しそう、やってみたい<br />
-                    と心と体が動きます。<br />
-                    心のスイッチがONになるデザインで<br />
-                    誰かの人生を豊かにしたい。<br />
-                </p>
-            </div>
-            <div class="concept_ling">
-                <div class="inview fadeIn_left">
-                    <div class="GREEN_Box ">
-                        <span class="YELLOW_cicle1"></span>
-                    </div>
-                </div>
-                <div class="inview fadeIn_right">
-                    <div class="RED_Box">
-                        <span class="YELLOW_cicle2"></span>
-                    </div>
+                <div class="about_me_sentence">
+                    <p class="weight_bold blue_heading js-fadeUp">デザインが生み出す小さな魔法</p>
+                    <p class="about_me_sentence_1 js-fadeUp">大学3年の夏、私は就職活動でいくつもの新卒採用サイトを見て、頭を悩ませていました。
+                        その中で、とあるサイトを見たとき、「まるで魔法みたいだ」と感じた瞬間がありました。
+                        画面が動き出し、思わず笑顔になってしまう仕掛けに、ただ情報を得るだけの時間が、
+                        気がつけばわくわくする瞬間に変わっていました。
+                        憂鬱だった就職活動の時間が、そのデザインによって、一瞬で心躍る体験に変わったのです。</p>
+                    <p class="weight_bold about_me_sentence_2 js-fadeUp">デザインを通じて、日常に「ちょっとした魔法」をかけるような体験を届けたい。</p>
+                    <p class="js-fadeUp">それは、目の前の世界に新しい驚きや感動をプラスすること。
+                        私が感じた、あのささやかな魔法のような体験を、
+                        デザインを通じて多くの人に届けられるデザイナーになりたいと思っています。</p>
+                    <a href="./aboutMe.html" class="button_morning about_me_button js-fadeUp"><span></span>もっと知る</a>
                 </div>
             </div>
         </section>
-        <section id="skill_works">
-            <div class="skill_wrap">
-                <div class="skill_title">
-                    <h2>
-                        <img src="images/SVG/pc_ct_skill.svg" alt="SKILLのコンテンツ名">
-                    </h2>
-                    <p>できること</p>
-                </div>
-                <div class="skill_inner">
-                    <div class="skill_design">
-                        <h3>DESIGN</h3>
-                        <p class="text_jp">デザイン</p>
-                        <img src="images/SVG/skill_ds_illust.svg" alt="黄色のデザインアイコン">
-                        <p class="skill_text">
-                            Webサイト、LP、バナー制作をメインに承ります。お客様の要望を丁寧にヒアリングし、デザインしていきます。イメージやコピーなどもご提案しますのでお気軽にご相談してください。</p>
-                        <div class="slill_tool">
-                            <ul>
-                                <li>Illustrator</li>
-                                <li>Photoshop</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="skill_coding">
-                        <h3>CODING</h3>
-                        <p class="text_jp">コーディング</p>
-                        <img src="images/SVG/skill_cd_illust.svg" alt="黄色のコーディングアイコン">
-                        <p class="skill_text">
-                            HTML、CSSを使用しレスポンシブにも対応したコーディングができます。<br />また、JavaScripやjQueryを使用してサイトに動きをつけることも可能です。</p>
-                        <div class="slill_tool">
-                            <ul>
-                                <li>VSCode</li>
-                                <li>GitHub</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="works">
-                <h2>
-                    <img src="images/SVG/pc_ct_works.svg" alt="ワークスのコンテンツ名">
-                </h2>
-                <p>つくったもの</p>
-            </div>
-            <div class="slider">
-                <ul class="slider_inner">
-                    <li class="mk_box">
-                        <a href="./ASU_DESIGN.html">
-                            <img src="images/2x/works_asudesign@2x.png" alt="ASU DESIGNモックアップ">
-                        </a>
-                    </li>
-                    <li class="mk_box">
-                        <a href="./DESIGN_CAFE.html">
-                            <img src="images/2x/works_designcafe@2x.png" alt="DESIGN CAFEモックアップ">
-                        </a>
-                    </li>
-                    <li class="mk_box2">
-                        <a href="./LIFE_hair_design.html">
-                            <img src="images/2x/works_hairdesign@2x.png" alt="LIFE hair designモックアップ">
-                        </a>
-                    </li>
-                    <li class="mk_box2">
-                        <a href="./burger_shop.html">
-                            <img src="images/2x/works_burger_shop@2x.png" alt="バーガーショップモックアップ">
-                        </a>
-                    </li>
 
-                    <li class="mk_box">
-                        <a href="./trrrrip.html">
-                            <img src="images/2x/works_TRRRRIP@2x.png" alt="TRRRRIP.モックアップ">
-                        </a>
-                    </li>
-                    <li class="mk_box">
-                        <a href="./dezasuta_mb.html">
-                            <img src="images/2x/works_dezasuta@2x.png" alt="デザスタmobileモックアップ">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="works_btn">
+        <section class="splide" aria-labelledby="carousel-heading">
+            <p class="sub_title js-fadeUp">-works-</p>
+            <h2 class="title js-fadeUp">制作実績</h2>
+
+            <!-- 矢印を追加 -->
+            <div class="splide__arrows">
                 <div>
-                    <p><a href="./works.html">MORE</a></p>
+                    <button class="splide__arrow splide__arrow--prev">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.53 28.22">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                        stroke: #545454;
+                                        stroke-miterlimit: 10;
+                                    }
+
+                                    .cls-2 {
+                                        fill: #545454;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="PC">
+                                <polygon class="cls-2" points="21.69 14.11 19.16 12.65 19.16 15.57 21.69 14.11" />
+                                <line class="cls-1" y1="14.11" x2="20" y2="14.11" />
+                                <circle class="cls-1" cx="20.42" cy="14.11" r="13.61" />
+                            </g>
+                        </svg>
+                    </button>
                 </div>
 
-                <div class="check_btn">
-                    <span></span>
+                <!-- ページネーション -->
+                <div class="pagination">
+                    <span id="current-slide"></span>
+                    <span class="slash">|</span>
+                    <span id="slide-length"></span>
                 </div>
+                <div>
+                    <button class="splide__arrow splide__arrow--next">
+                        <svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 34.53 28.22">
+                            <defs>
+                                <style>
+                                    .cls-1 {
+                                        fill: none;
+                                        stroke: #545454;
+                                        stroke-miterlimit: 10;
+                                    }
 
+                                    .cls-2 {
+                                        fill: #545454;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="PC">
+                                <g>
+                                    <polygon class="cls-2" points="12.84 14.11 15.37 15.57 15.37 12.65 12.84 14.11" />
+                                    <line class="cls-1" x1="34.53" y1="14.11" x2="14.53" y2="14.11" />
+                                    <circle class="cls-1" cx="14.11" cy="14.11" r="13.61" />
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </section>
-        <section id="about">
-            <div class="about_wrap">
-                <div class="about_title">
-                    <h2>
-                        <img src="images/SVG/pc_ct_about.svg" alt="アバウトのコンテンツ名">
-                    </h2>
-                    <p>わたしについて</p>
-                </div>
-                <div class="about_btn">
-                    <div class="about_btn_inner">
-                        <div class="about_check_btn">
-                            <a href="./about.html">
-                                <img src="images/2x/top_about@2x.webp" alt="子供を抱っこしている写真">
-                            </a>
 
-                            <div class="click_text">
-                                <img src="images/SVG/pc_about_cliclme.svg" alt="英語でクリックミーの文字">
+            <div class="splide__track js-fadeUp">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <a href="./works_designCafe.html">
+                            <div class="works_back">
+                                <img src="./image/morning/works/design_cafe_PC_mainvisul.png"
+                                    alt="design_cafe_PC_mainvisul">
                             </div>
-                        </div>
-                        <div class="about_text_box">
-                            <p class="about_text1">ASUNA</p>
-                            <p class="about_text2">はじめまして！あすなです。<br
-                                    class="sp_br">つくるもので人と人の想いがつながって、その先に幸せな気持ちが生まれる。想いをつなぐお手伝いをさせてください。
-                            </p>
-                        </div>
-                        <p class="about_more">もっと詳しく見る！</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="contact_wrap">
-                <div class="contact_title">
-                    <h2>
-                        <img src="images/SVG/pc_contact.svg" alt="コンタクトのコンテンツ名">
-                    </h2>
-                    <p>お問い合わせ</p>
-                </div>
-                <p class="contact_text">
-                    web制作、その他デザイン制作に関するご依頼・ご相談は<br />こちらからお願いします。<br />
-                    24時間以内に返信いたします。
-                </p>
-
-
-                <form class="c-form"
-                    action="https://docs.google.com/forms/u/1/d/e/1FAIpQLScpFFUts4O7oR3_VZ5z1Q2akkC6Tyrw7nTxWE6VagU_RSCmBw/formResponse"
-                    method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-                    <div class="c-form__item">
-                        <label class="c-form__label" for="field-name">名前<span class="c-form__required">必須</span></label>
-                        <input name="entry.494945336" class="c-form__input" id="field-name" placeholder="例）山田 太郎"
-                            type="text" required="required" />
-                    </div>
-                    <div class="c-form__item">
-                        <label class="c-form__label" for="field-name">ふりがな<span
-                                class="c-form__required">必須</span></label>
-                        <input name="entry.806481751" class="c-form__input" id="field-furigana" placeholder="例）やまだ たろう"
-                            type="text" required="required" />
-                    </div>
-                    <div class="c-form__item">
-                        <label class="c-form__label" for="field-name">会社名/団体名</label>
-                        <input name="entry.732372047" class="c-form__input" id="field-company" placeholder="例）デザイン会社"
-                            type="text" />
-                    </div>
-                    <div class="c-form__item">
-                        <label class="c-form__label" for="field-mail">メールアドレス<span
-                                class="c-form__required">必須</span></label>
-                        <input name="entry.1779529453" class="c-form__input" id="field-mail"
-                            placeholder="sample@gmail.com" type="email" required="required" />
-                    </div>
-                    <div class="c-form__item">
-                        <label class="c-form__label" for="field-message">お問い合わせ内容<span
-                                class="c-form__required">必須</span></label>
-                        <textarea name="entry.833369709" class="c-form__input" id="field-message" placeholder="お問い合わせ内容"
-                            required="required"></textarea>
-                    </div>
-                    <div class="send_btn">
-                        <div class="c-form__submit">
-                            <button type="submit">SEND</button>
-                            <div class="send_check_btn">
-                                <span></span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </form>
-            </div>
-        </section>
-        <footer id="Footer">
-            <div class="footer-wrap">
-                <div class="footer-logo">
-                    <h1>
-                        <a href="./index.html">
-                            <img src="images/SVG/logo_footer.svg" alt="白のASU DESIGNのロゴ">
+                            <p class="works_title">デザインカフェ</p>
                         </a>
-                    </h1>
-                </div>
-                <div class="footer-list">
-                    <ul>
-                        <li><a href="./index.html">HOME</a></li>
-                        <li><a href="./works.html">WORKS</a></li>
-                        <li><a href="./about.html">ABOUT</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                    </ul>
-                </div>
+                    </li>
+                    <li class="splide__slide">
+                        <a href="./works_biyousituLIFE.html">
+                            <div class="works_back">
+                                <img src="./image/morning/works/beauty_salon_LIFE_LP.png" alt="beauty_salon_LIFE_LP">
+                            </div>
+                            <p class="works_title">美容室LIFE</p>
+                        </a>
+                    </li>
+                    <li class="splide__slide">
+                        <a href="works_deluxeBurger_POP.html">
+                            <div class="works_back">
+                                <img src="./image/morning/works/deluxe_burger_POP_banner.jpg"
+                                    alt="deluxe_burger_POP_banner">
+                            </div>
+                            <p class="works_title">デラックスバーガー_POP</p>
+                        </a>
+                    </li>
+                    <li class="splide__slide">
+                        <a href="works_deluxeBurger_luxury.html">
+                            <div class="works_back">
+                                <img src="./image/morning/works/deluxe_burger_rich_banner.jpg"
+                                    alt="deluxe_burger_rich_banner">
+                            </div>
+                            <p class="works_title">デラックスバーガー_高級感</p>
+                        </a>
+                    </li>
+                    <li class="splide__slide">
+                        <a href="works_dezasuta_mobile.html">
+                            <div class="works_back">
+                                <img src="./image/morning/works/dezasuta_mobile_banner.jpg"
+                                    alt="dezasuta_mobile_banner">
+                            </div>
+                            <p class="works_title">デザスタmobile</p>
+                        </a>
+                    </li>
+                    <li class="splide__slide">
+                        <a href="works_TRRRRIP.html">
+                            <div class="works_back">
+                                <img src="./image/morning/works/TRRRRIP_banner.jpg" alt="TRRRRIP_banner">
+                            </div>
+                            <p class="works_title">TRRRRIP.</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <p>©2025 ASU DESIGN</p>
-        </footer>
-    </main>
-    <script type="text/javascript">
-        let submitted = false;
-    </script>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"
-        onload="if(submitted){window.location='./thanks.html';}"></iframe>
 
+            <a href="./works.html" class="button_morning works_button js-fadeUp"><span></span>もっと見る</a>
+        </section>
+
+        <section class="contact">
+            <div class="contact_main">
+                <p class="sub_title js-fadeUp">-contact-</p>
+                <h2 class="title js-fadeUp">お問い合わせ</h2>
+                <p class="contact_sentence js-fadeUp">ポートフォリオをご覧いただきありがとうございます。<br>
+                    WEBサイト制作を中心としたデザイン業務をお受けしています。<br>
+                    業務に関するご依頼・ご相談、当サイトに対するご感想やメッセージを、
+                    お気軽にお問い合わせください。</p>
+                <a href="./contact.html" class="button_morning contact_button js-fadeUp"><span></span>お問い合わせする</a>
+            </div>
+            <div class="contact_photo js-fadeUp">
+                <img src="./image/morning/photo/contact_morning.JPG" alt="contact_morning">
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="content">
+            <ul class="footer_menu">
+                <li><a href="./aboutMe.html">about&nbsp;me</a></li>
+                <li><a href="./works.html">works</a></li>
+                <li><a href="./contact.html">contact</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
     <script>
-
-        $(function () {
-            $('.sp_btn').on('click', function () {
-                $('.sp_btn').toggleClass('open');
-                $('.sp_nav').fadeToggle();
-            })
-
-            var touch = 'ontouchstart' in document.documentElement
-            || navigator.maxTouchPoints > 0
-            || navigator.msMaxTouchPoints > 0;
-
-            if (touch) {
-                try {
-                // for (var si in document.styleSheets) {
-                    var styleSheet = document.styleSheets[3];
-                    console.log(styleSheet)
-                        // if (!styleSheet.rules) continue;
-
-                        for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
-                            console.log('aa')
-                            if (!styleSheet.rules[ri].selectorText) continue;
-
-                            if (styleSheet.rules[ri].selectorText.match(':hover')) {
-                                styleSheet.deleteRule(ri);
-                            }
-                        }
-                    // }
-                } catch (ex) { }
-            } else {
-                $('.works_btn').hover(
-                    function () {
-                        $(this).find('a').text('もっと!')
-                    },
-                    function () {
-                        $(this).find('a').text('MORE')
-                    }
-                );
-
-                $('.c-form__submit').hover(
-                    function () {
-                        $(this).find('button').text('送る')
-                    },
-                    function () {
-                        $(this).find('button').text('SEND')
-                    }
-                );
+        var splide = new Splide('.splide', {
+            type: 'loop',
+            perPage: 3,
+            focus: 'center',
+            pagination: false,
+            autoWidth: true,
+            gap: 20,
+            breakpoints: {
+                920: {
+                    perPage: 1, // 1つのスライドを中央に表示
+                    focus: 'center', // 常に中央に配置
+                    padding: '30%', // 左右にスライドを少し見切れさせる
+                },
+                767: {
+                    perPage: 1,
+                    focus: 'center',
+                    padding: '25%',
+                },
+                630: {
+                    perPage: 1,
+                    focus: 'center',
+                    padding: '5%',
+                }
             }
-        });
+        }).mount();
 
-        //コンセプトの円//
+
+        // 次のスライドが表示されるタイミングで発生
+        splide.on("active", function () {
+            slideIndex();
+        });
+        function slideIndex() {
+            // 現在のスライドが何枚目かを取得
+            document.getElementById("current-slide").textContent = splide.index + 1;
+            // スライドの総数を取得
+            document.getElementById("slide-length").textContent = splide.length;
+        }
+        slideIndex();
+    </script>
+    <script>
+        document.getElementById("toggleTheme").addEventListener("click", function () {
+            document.body.classList.toggle("night");
+        });
+    </script>
+    <script>
         $(function () {
-            $(".inview").on("inview", function (event, isInView) {
-                if (isInView) {
-                    $(this).stop().addClass("is-show");
+            let $line = $(".line")
+            let $sun = $(".sun")
+            let $moon = $(".moon")
+
+
+            function sunToMoon() {
+                let lineWidth = $line.width()
+                let lineHeight = $line.height()
+                let radius = lineWidth / 2 // 半円の半径
+                let centerX = $line.offset().left + radius // 半円の中心x座標
+                let centerY = $line.offset().top + lineHeight // 半円の中心y座標
+
+                let sunWidth = $sun.width() / 2 // sunの半径（画像の横幅の半分）
+                let moonWidth = $moon.width() / 2 // moonの半径（画像の横幅の半分）
+
+                // sunの初期位置
+                let initialSunX = centerX - sunWidth
+                let initialSunY = centerY - radius - sunWidth / 2 - 50
+                // パーセンテージで初期位置をCSSに反映
+                $sun.css({
+                    left: (initialSunX / $(window).width()) * 100 + "%",
+                    top: (initialSunY / $(window).height()) * 100 + "%"
+                })
+
+                // moonの初期位置
+                let initialMoonX = centerX - radius - moonWidth / 2
+                let initialMoonY = centerY - radius / 2 - 90
+
+                $moon.css({
+                    left: (initialMoonX / $(window).width()) * 100 + "%",
+                    top: (initialMoonY / $(window).height()) * 100 + "%"
+                })
+
+                // sunとmoonの初期位置の角度差を計算
+                let sunAngle = Math.atan2(initialSunY - centerY, initialSunX - centerX) // sunの初期角度
+                let moonAngle = Math.atan2(initialMoonY - centerY, initialMoonX - centerX) // moonの初期角度
+                let angleDifference = sunAngle - moonAngle + 0.28 // sunとmoonの初期角度差
+                $sun.draggable({
+                    drag: function (event, ui) {
+                        // sunの座標
+                        let x = ui.position.left + sunWidth - centerX
+                        let y = centerY - (ui.position.top + sunWidth)
+
+                        // 半円の範囲 (-90° ~ 90°) の角度
+                        let angle = Math.atan2(y, x)
+                        if (angle < -Math.PI / 2) angle = -Math.PI / 2
+                        if (angle > Math.PI / 2) angle = Math.PI / 2
+
+                        // sunの新しい座標
+                        let newX = centerX + radius * Math.cos(angle) - sunWidth
+                        let newY = centerY - radius * Math.sin(angle) - sunWidth * 0.9
+
+                        // sunの位置を設定
+                        ui.position.left = newX
+                        ui.position.top = newY
+
+                        // moonの角度
+                        let moonNewAngle = angle + angleDifference // sunの角度から初期角度差を引く
+
+                        // moonの新しい座標
+                        let moonX = centerX + radius * Math.cos(moonNewAngle) - moonWidth * 0.9
+                        let moonY = centerY - radius * Math.sin(moonNewAngle) - moonWidth * 0.9
+
+                        // moonの位置を設定
+                        $moon.css({
+                            left: (moonX / $(window).width()) * 100 + "%",
+                            top: (moonY / $(window).height()) * 100 + "%"
+                        })
+
+                        // 月が中央上部にきたとき
+                        if ($moon.offset().left + moonWidth > centerX) {
+                            $sun.draggable("disable")
+
+                            $moon.css({
+                                left: centerX - moonWidth,
+                                top: centerY - radius - moonWidth * 0.9
+                            })
+
+                            // index_night.html へ遷移
+                            window.location.href = "index_night.html";
+
+                            $sun.draggable('enable')
+                        }
+
+                    },
+                    containment: "parent"
+                })
+            }
+
+            sunToMoon()
+
+            // ウィンドウ幅が変更された際も正しく動くように設定
+            $(window).on('resize', function () {
+                sunToMoon()
+            })
+        })
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sun = document.querySelector(".sun_sp");
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            sun.addEventListener("touchstart", function (e) {
+                startX = e.touches[0].clientX;
+                currentX = startX;
+                isDragging = true;
+                sun.style.transition = "none"; // アニメーションをオフ
+            });
+
+            sun.addEventListener("touchmove", function (e) {
+                if (!isDragging) return;
+                let moveX = e.touches[0].clientX;
+                let deltaX = moveX - startX;
+
+                if (deltaX > 0) { // 右方向にのみ移動
+                    sun.style.transform = `translateX(${deltaX}px)`;
+
+                    // 移動距離に応じて透明度を変化 (最大150pxで透明)
+                    let opacity = Math.max(1 - deltaX / 150, 0);
+                    sun.style.opacity = opacity;
+                }
+            });
+
+            sun.addEventListener("touchend", function (e) {
+                isDragging = false;
+                let endX = e.changedTouches[0].clientX;
+                let totalMove = endX - startX;
+
+                if (totalMove > 70) {
+                    window.location.href = "index_night.html";
+                } else {
+                    sun.style.transition = "transform 0.3s ease, opacity 0.3s ease"; // 戻るアニメーション
+                    sun.style.transform = "translateX(0)";
+                    sun.style.opacity = "1"; // 元の透明度に戻す
                 }
             });
         });
 
-        $('.slider_inner').slick({
-            autoplay: true,//自動的に動き出すか。初期値はfalse。
-            infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-            slidesToShow: 4,//スライドを画面に3枚見せる
-            slidesToScroll: 1,//1回のスクロールで3枚の写真を移動して見せる
-            // prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-            // nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 940,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 690,//モニターの横幅が769px以下の見せ方
-                    settings: {
-                        slidesToShow: 1,//スライドを画面に2枚見せる
-                        slidesToScroll: 1,//1回のスクロールで2枚の写真を移動して見せる
-                    }
-                },
-            ]
-        });
-
-
-        
-
-        
     </script>
-
 </body>
 
 </html>

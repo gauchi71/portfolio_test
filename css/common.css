@@ -1,0 +1,608 @@
+@charset "utf-8";
+
+/* ゆっくり遷移する */
+html {
+    scroll-behavior: smooth;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    /* 入力されたテキストのフォント変更 */
+    font-size: 14px;
+    /* フォントサイズの変更 */
+    color: #545454;
+    /* テキスト色 */
+    letter-spacing: 0.1em;
+}
+
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    /* フォントの変更 */
+    font-size: 14px;
+    /* フォントサイズの変更 */
+    color: #a0a0a0;
+    /* プレースホルダーのテキスト色 */
+    letter-spacing: 0.1em;
+}
+
+body {
+    background-color: #fcf2e5;
+}
+
+.page_width {
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.header_right {
+    margin-right: 80px;
+    z-index: 20;
+}
+
+.header_logo {
+    margin-left: 30px;
+    transition: all 0.5s ease;
+}
+
+.header_logo img {
+    position: fixed;
+    width: 100px;
+    height: auto;
+}
+
+.mail_icon {
+    position: fixed;
+    background-color: #83ccd4;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 60px;
+    transition: all 0.5s ease;
+}
+
+/* ホバー時にボタン全体を透過 */
+.mail_icon:hover,
+.header_logo:hover,
+.header_logo_vertical:hover {
+    opacity: 0.7;
+    /* 透過度を70%に */
+}
+
+.mail_icon img {
+    width: 20px;
+    margin-top: 16px;
+    margin-left: 15px;
+}
+
+.header_logo_vertical {
+    position: fixed;
+    width: 20px;
+    height: auto;
+    margin-top: 130px;
+    margin-left: 12px;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+/* ハンバーガーメニュー */
+/*============ 
+nav
+=============*/
+nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* 左からではなく、右から出現 */
+    bottom: 0;
+    width: 300px;
+    background: #83ccd4;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: all .5s;
+    z-index: 4;
+    opacity: 0;
+}
+
+.open nav {
+    right: 0;
+    /* 右側に表示 */
+    opacity: 1;
+}
+
+nav .inner {
+    padding: 25px;
+}
+
+nav .inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav .inner ul li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #fcf2e5;
+}
+
+nav .inner ul li a {
+    display: block;
+    color: #fcf2e5;
+    font-size: 14px;
+    padding: 4em 1em 1em 1em;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+nav .inner ul li a:hover {
+    background: #fcf2e5;
+    color: #83ccd4;
+}
+
+@media screen and (max-width: 767px) {
+    nav {
+        right: -100%;
+        width: 100%;
+    }
+
+    .open nav {
+        right: 0;
+        width: 100%;
+    }
+}
+
+
+/*============ 
+  .toggle_btn
+  =============*/
+.toggle_btn {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: #83ccd4;
+    border-radius: 50%;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 6;
+}
+
+.toggle_btn:hover {
+    opacity: 0.7;
+}
+
+.toggle_btn span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 3px;
+    background-color: #fcf2e5;
+    border-radius: 4px;
+    transition: all .5s;
+}
+
+.toggle_btn span:nth-child(1) {
+    transform: translate(-50%, calc(-50% + -6px));
+}
+
+.toggle_btn span:nth-child(3) {
+    transform: translate(-50%, calc(-50% + 6px));
+}
+
+/* ハンバーガーメニューの開いている状態 */
+.open .toggle_btn {
+    transform: translateX(-300px);
+}
+
+.open .toggle_btn span {
+    background-color: #fcf2e5;
+}
+
+.open .toggle_btn span:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(-315deg);
+}
+
+.open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.open .toggle_btn span:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(315deg);
+}
+
+/*============ 
+  #mask
+  =============*/
+#mask {
+    display: none;
+    transition: all .5s;
+    z-index: 3;
+}
+
+.open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* セクションごとの見出し */
+.sub_title {
+    font-size: 14px;
+    color: #83ccd4;
+    letter-spacing: 0.2em;
+    padding: 0 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.weight_bold {
+    font-weight: bold;
+}
+
+/* 朝ver ボタン */
+.button_morning {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 1rem;
+    font-weight: bold;
+    border-radius: 100px;
+    color: #545454;
+    border: 2px solid #83ccd4;
+    box-shadow: 0px 3px #83ccd4;
+    transition: 0.3s ease-in-out;
+    background-color: transparent;
+    overflow: hidden;
+    margin: auto 10px;
+}
+
+/* 矢印の「くの字」を作成 */
+.button_morning::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 3px solid #545454;
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+    transition: color 0.3s ease-in-out;
+}
+
+/* 背景用の疑似要素（ホバー時に左→右へ変化） */
+.button_morning::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #83ccd4;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+}
+
+/* ホバー時のスタイル */
+.button_morning:hover {
+    color: #fcf2e5;
+    box-shadow: 0px 3px #545454;
+}
+
+/* ホバー時に背景を左から右へ表示 */
+.button_morning:hover::before {
+    transform: scaleX(1);
+}
+
+/* ホバー時に矢印の色を白に */
+.button_morning:hover::after {
+    border-color: #fcf2e5;
+}
+
+.button_morning_return {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    width: 120px;
+    padding: 1rem 1rem;
+    font-weight: bold;
+    border-radius: 100px;
+    color: #545454;
+    border: 2px solid #83ccd4;
+    box-shadow: 0px 3px #83ccd4;
+    transition: 0.3s ease-in-out;
+    background-color: transparent;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+
+.button_morning_return::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 3px solid #545454;
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
+    transform: rotate(-135deg);
+}
+
+/* 背景用の疑似要素（ホバー時に左→右へ変化） */
+.button_morning_return::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #83ccd4;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+}
+
+/* ホバー時のスタイル */
+.button_morning_return:hover {
+    color: white;
+    box-shadow: 0px 3px #545454;
+}
+
+/* ホバー時に背景を左から右へ表示 */
+.button_morning_return:hover::before {
+    transform: scaleX(1);
+}
+
+/* ホバー時に矢印の色を白に */
+.button_morning_return:hover::after {
+    border-color: white;
+}
+
+footer {
+    background-color: #83ccd4;
+    color: #fcf2e5;
+    height: 100px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+footer .content {
+    width: 100%;
+}
+
+.footer_menu {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer_menu li {
+    margin-right: 50px;
+}
+
+.footer_menu a {
+    color: #fcf2e5;
+    text-decoration: none;
+}
+
+.footer_menu a:hover {
+    opacity: 0.7;
+    transition: 0.3s ease-in-out;
+}
+
+.page_up {
+    position: fixed;
+    bottom: 3%;
+    width: 50px;
+    height: 50px;
+    background-color: #fcf2e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.page_up:hover {
+    opacity: 0.7;
+    /* 透過度を70%に */
+    transform: scale(1.1);
+    /* ホバー時に少し拡大 */
+    transition: 0.3s ease-in-out;
+}
+
+.arrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #83ccd4;
+    border-width: 3px 3px 0 0;
+    transform: rotate(-45deg);
+    position: relative;
+    top: 3px;
+}
+
+/* フェードイン(初期値) */
+.js-fadeUp {
+    opacity: 0;
+    /* 最初は非表示 */
+    transform: translateY(20px);
+    /* 下に20pxの位置から */
+    transition: opacity .6s, transform .6s;
+    /* 透過率と縦方向の移動を0.8秒 */
+}
+
+/* フェードイン(スクロールした後) */
+.js-fadeUp.is-inview {
+    opacity: 1;
+    /* 表示領域に入ったら表示 */
+    transform: translateY(0);
+    /* 30px上に移動する */
+    transition-delay: .3s;
+    /* フェード開始を0.5秒遅らせる */
+}
+
+@media screen and (max-width: 767px) {
+
+    .title {
+        font-size: 18px;
+    }
+
+    .sub_title {
+        font-size: 12px;
+    }
+
+    /* ハンバーガーメニュー */
+    .open .toggle_btn {
+        transform: translateX(0px);
+    }
+
+    /* ヘッダー */
+    .header_logo {
+        margin-left: 10px;
+    }
+
+    .header_logo img {
+        width: 80px;
+        z-index: 1;
+    }
+
+    .header_logo_vertical {
+        display: none;
+        z-index: 1;
+    }
+
+    .header_right {
+        margin-right: 60px;
+    }
+
+    /* フッター */
+    footer {
+        height: 220px;
+    }
+
+    .footer_menu {
+        display: block;
+    }
+
+    .footer_menu li {
+        margin: 40px auto;
+    }
+}
+
+/* nightモード */
+body.night {
+    background-color: #1C4268;
+
+    p,
+    h2,
+    .slash {
+        color: #fcf2e5;
+    }
+
+    footer,
+    .mail_icon,
+    .toggle_btn,
+    .page_up {
+        background-color: #061F4B;
+    }
+
+    nav {
+        background-color: #061F4B;
+    }
+
+    nav .inner ul li a:hover {
+        background: #fcf2e5;
+        color: #061F4B;
+    }
+
+    .arrow {
+        border: 3px solid #fcf2e5;
+        border-width: 2px 2px 0 0;
+    }
+
+    .button_morning {
+        box-shadow: none;
+        border: none;
+    }
+
+    .button_morning span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fcf2e5;
+        z-index: -2;
+    }
+
+    .button_morning::before {
+        background-color: #061F4B;
+    }
+
+    .button_morning_return {
+        box-shadow: none;
+        border: none;
+    }
+
+    .button_morning_return span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fcf2e5;
+        z-index: -2;
+    }
+
+    .button_morning_return::before {
+        background-color: #061F4B;
+    }
+}
