@@ -130,7 +130,7 @@
                     <li><a href="#contact" alt="CONTACT">CONTACT</a></li>
                 </ul>
             </nav>
-            <video class="video" src="images/AdobeStock_305126466.mov" loop autoplay muted>
+            <video class="video" src="images/AdobeStock_305126466.mp4" loop autoplay muted playsinline>
             </video>
             <div class="title_word_wrap">
                 <div class="title_word_sp" id="top">
@@ -350,16 +350,6 @@
             path.setAttribute("d", interpolator(this.targets()[0].t));
           }
         });
-      </script>
-      <script>
-        const video = document.querySelector(".video");
-        video.muted = true;
-        
-        setTimeout(() => {
-            video.play().catch((e) => {
-            console.warn("Autoplay failed:", e);
-            });
-        }, 100);
       </script>
     <!-- <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
     
