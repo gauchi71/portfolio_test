@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 135.96 152.57">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" width="135.96" height="152.57"/>
+    </clipPath>
+  </defs>
+  <g id="_固定" data-name="固定">
+    <g id="_レイヤー_5" data-name="レイヤー 5">
+      <g class="cls-2">
+        <image id="AdobeStock_483939245.psd" width="4463" height="3361" transform="translate(-182.43 -29.39) scale(.12)" xlink:href="favicon-1.png"/>
+      </g>
+    </g>
+  </g>
+</svg>

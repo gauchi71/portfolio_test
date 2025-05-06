@@ -4,133 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iROASOBi</title>
+    <title>Filer_design</title>
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/works.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!-- inview.jsの読み込み -->
-    <script src="./js/jquery.inview.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        (function (d) {
+            var config = {
+                kitId: 'bpy0snk',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="icon" href="favicon.ico" id="favicon">
 </head>
 
 <body>
-    <header id="header">
-        <div class="header_left">
-            <h1 class="header_logo">
-                <a href="./index.html"><img src="./image/morning/logo_morning.png" alt="iROASOBi"></a>
-            </h1>
+    <header>
+        <div class="top3">
+            <picture>
+                <source srcset="2x/top3_sp@2x-100.jpg" media="(max-width:767px)">
+                <img src="images/1x/TOP3-80.jpg" alt="TOP3">
+            </picture>
         </div>
-        <div class="header_right">
-            <div id="navArea">
-                <nav>
-                    <div class="inner">
-                        <ul>
-                            <li><a href="./aboutMe.html">about&nbsp;me</a></li>
-                            <li><a href="./works.html">works</a></li>
-                            <li><a href="./contact.html">contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="toggle_btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div id="mask"></div>
+        <div class="header_wrap">
+            <h1 class="header_logo">
+                <a href="./index.html">
+                    <img src="images/logo.svg" alt="Filer_design">
+                </a>
+            </h1>
+            <nav class="pc_nav">
+                <ul>
+                    <li><a href="./index.html#concept" alt="CONCEPT">CONCEPT</a></li>
+                    <li><a href="./about.html" alt="ABOUT">ABOUT</a></li>
+                    <li><a href="./works.html" alt="WORKS">WORKS</a></li>
+                    <li><a href="./index.html#contact" alt="CONTACT">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="sp_btn ">
+                <span></span>
             </div>
-            <div class="mail_icon">
-                <a href="./contact.html"><img src="./image/morning/mail_icon.svg" alt="mail"></a>
-            </div>
-            <a href="./index.html"><img class="header_logo_vertical" src="./image/morning/logo_morning_tate.png"
-                    alt="iROASOBi"></a>
-            <a href="#header" class="page_up">
-                <span class="arrow"></span>
-            </a>
+            <nav class="sp_nav">
+                <ul>
+                    <li><a href="./index.html#concept" alt="CONCEPT">CONCEPT</a></li>
+                    <li><a href="./about.html" alt="ABOUT">ABOUT</a></li>
+                    <li><a href="./works.html" alt="WORKS">WORKS</a></li>
+                    <li><a href="./index.html#contact" alt="CONTACT">CONTACT</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <div class="content">
-        <section class="works">
-            <p class="sub_title js-fadeUp">-works-</p>
-            <h2 class="title js-fadeUp">制作実績</h2>
-            <ul class="works_bar js-fadeUp">
-                <li class="active">ALL</li>
-                <li>LP</li>
-                <li>WEBサイト</li>
-                <li>バナー</li>
-            </ul>
-            <div class="works_main js-fadeUp">
-                <div class="works_wrapper web all">
-                    <a href="./works_designCafe.html">
-                        <div class="works_box">
-                            <img src="./image/morning/works/design_cafe_PC_mainvisul.png"
-                                alt="design_cafe_PC_mainvisul">
-                        </div>
-                        <p class="works_title">デザインカフェ</p>
-                    </a>
+
+    <h2 class="works2">WORKS</h2>
+    <section class="works_varie">
+        <div class="works_wrap">
+            <div>
+                <div class="box">
+                    <img src="2x/works1-1@2x-80.jpg">
                 </div>
-                <div class="works_wrapper lp all">
-                    <a href="./works_biyousituLIFE.html">
-                        <div class="works_box">
-                            <img src="./image/morning/works/beauty_salon_LIFE_LP.png" alt="beauty_salon_LIFE_LP">
-                        </div>
-                        <p class="works_title">美容室LIFE</p>
-                    </a>
-                </div>
-                <div class="works_wrapper banner all">
-                    <a href="works_deluxeBurger_POP.html">
-                        <div class="works_box">
-                            <img src="./image/morning/works/deluxe_burger_POP_banner.jpg"
-                                alt="deluxe_burger_POP_banner">
-                        </div>
-                        <p class="works_title">デラックスバーガー POP</p>
-                    </a>
-                </div>
-                <div class="works_wrapper banner all">
-                    <a href="works_dezasuta_mobile.html">
-                        <div class="works_box">
-                            <img src="./image/morning/works/dezasuta_mobile_banner.jpg" alt="dezasuta_mobile_banner">
-                        </div>
-                        <p class="works_title">デザスタ mobile</p>
-                    </a>
-                </div>
-                <div class="works_wrapper banner all">
-                    <a href="works_TRRRRIP.html">
-                        <div class="works_box">
-                            <img src="./image/morning/works/TRRRRIP_banner.jpg" alt="TRRRRIP_banner">
-                        </div>
-                        <p class="works_title">TRRRRIP</p>
-                    </a>
-                </div>
-                <div class="works_wrapper banner all">
-                    <a href="works_deluxeBurger_luxury.html">
-                        <div class="works_box">
-                            <img src="./image/morning/works/deluxe_burger_rich_banner.jpg"
-                                alt="deluxe_burger_rich_banner">
-                        </div>
-                        <p class="works_title">デラックスバーガー 高級感</p>
-                    </a>
+                <div>
+                    <p class="works_memo">Webサイト|デザイン・コーディング</p>
+                    <p class="works_memo2">ポートフォリオサイト</p>
                 </div>
             </div>
-        </section>
-
-    </div>
-    <footer>
-        <div class="content">
-            <ul class="footer_menu">
-                <li><a href="./aboutMe.html">about&nbsp;me</a></li>
-                <li><a href="./works.html">works</a></li>
-                <li><a href="./contact.html">contact</a></li>
-            </ul>
+            <div>
+                <div class="box">
+                    <a href="./works2.html" alt="Dcafe"><img src="2x/works1-1@2x-80.jpg"></a>
+                </div>
+                <div>
+                    <p class="works_memo">LP|コーディング</p>
+                    <p class="works_memo2">DESIGN CAFE</p>
+                </div>
+            </div>
+            <div>
+                <div class="box">
+                    <a href="./works3.html" alt="hamPUP"><img src="3x/3x/hamP@3x-100.jpg" alt="buger"></a>
+                </div>
+                <div>
+                    <p class="works_memo">バナー|デザイン</p>
+                    <p class="works_memo2">デラックスバーガー(POP ver)</p>
+                </div>
+            </div>
+            <div>
+                <div class="box">
+                    <a href="./works4.html" alt="hamRUP"><img src="3x/3x/hamR@3x-100.jpg" alt="buger"></a>
+                </div>
+                <div>
+                    <p class="works_memo">バナー|デザイン</p>
+                    <p class="works_memo2">デラックスバーガー(高級ver)</p>
+                </div>
+            </div>
+            <div>
+                <div class="box">
+                    <a href="./works5.html" alt="WORKERS"><img src="3x/3x/worksN@3x-100.jpg" alt="WORKERS"></a>
+                </div>
+                <div>
+                    <p class="works_memo">バナー|デザイン</p>
+                    <p class="works_memo2">WORKERS</p>
+                </div>
+            </div>
+            <div>
+                <div class="box">
+                    <a href="./works6.html" alt="ICE"><img src="1x/works1-5-80.jpg" alt="ICE"></a>
+                </div>
+                <div>
+                    <p class="works_memo">バナー|デザイン</p>
+                    <p class="works_memo2">季節限定アイスクリーム</p>
+                </div>
+            </div>
+            <div>
+                <div class="box">
+                </div>
+                <div>
+                    <p class="works_memo2">COMING SOON…</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="works3">
+        <div class="square">
+            <h1 class="footer_logo">
+                <img src="images/footer_logo.svg" alt="footer_logo">
+            </h1>
+            <div class="sheep_logo">
+                <img src="SVG/sheep.svg" alt="sheep">
+            </div>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script>
+        $(function () {
+            $(window).on('scroll', function () {
+                let headerHeight = $('header').height()
+                if ($(this).scrollTop() + 60 >= headerHeight) {
+                    $('.header_wrap').addClass('active')
+                } else {
+                    $('.header_wrap').removeClass('active')
+                }
+            })
+        })
+    </script>
+    <script>
+        $(function () {
+            $('.sp_btn').on('click', function () {
+                $('.sp_btn').toggleClass('open');
+                $('.sp_nav').fadeToggle();
+            })
+        })
+    </script>
 </body>
 
 </html>

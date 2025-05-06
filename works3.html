@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filer_design</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        (function (d) {
+            var config = {
+                kitId: 'bpy0snk',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="icon" href="favicon.ico" id="favicon">
+</head>
+
+<body>
+    <header>
+        <div class="top3">
+            <picture>
+                <source srcset="2x/top4_sp@2x-100.jpg" media="(max-width:767px)">
+                <img src="1x/1x/TOP4-80.jpg" alt="TOP4">
+            </picture>
+        </div>
+        <div class="header_wrap">
+            <h1 class="header_logo">
+                <a href="./index.html">
+                    <img src="images/logo.svg" alt="Filer_design">
+                </a>
+            </h1>
+            <nav class="pc_nav">
+                <ul>
+                    <li><a href="./index.html#concept" alt="CONCEPT">CONCEPT</a></li>
+                    <li><a href="./about.html" alt="ABOUT">ABOUT</a></li>
+                    <li><a href="./works.html" alt="WORKS">WORKS</a></li>
+                    <li><a href="./index.html#contact" alt="CONTACT">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="sp_btn ">
+                <span></span>
+            </div>
+            <nav class="sp_nav">
+                <ul>
+                    <li><a href="./index.html#concept" alt="CONCEPT">CONCEPT</a></li>
+                    <li><a href="./about.html" alt="ABOUT">ABOUT</a></li>
+                    <li><a href="./works.html" alt="WORKS">WORKS</a></li>
+                    <li><a href="./index.html#contact" alt="CONTACT">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="works_varie2" id="works3">
+        <h2 class="works2">WORKS</h2>
+        <div class="works-photo-ice">
+            <img src="3x/3x/hamPUP@3x-100.jpg" alt="hamPUP">
+            <table>
+                <tr>
+                    <td>カテゴリ</td>
+                    <td class="work-ice">バナーデザイン</td>
+                </tr>
+                <tr>
+                    <td>担当範囲</td>
+                    <td class="work-ice">デザイン</td>
+                </tr>
+                <tr>
+                    <td>使用ツール</td>
+                    <td class="work-ice">Adobe Photoshop /<br class="spbr"> Adobe Illustrator</td>
+                </tr>
+                <tr>
+                    <td>製作日数</td>
+                    <td class="work-ice">５～７日間</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <footer class="works4">
+        <div class="square">
+            <h1 class="footer_logo">
+                <img src="images/footer_logo.svg" alt="footer_logo">
+            </h1>
+            <div class="sheep_logo">
+                <img src="SVG/sheep.svg" alt="sheep">
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(function () {
+            $(window).on('scroll', function () {
+                let headerHeight = $('header').height()
+                if ($(this).scrollTop() + 60 >= headerHeight) {
+                    $('.header_wrap').addClass('active')
+                } else {
+                    $('.header_wrap').removeClass('active')
+                }
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>
