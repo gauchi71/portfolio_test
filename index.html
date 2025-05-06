@@ -352,13 +352,14 @@
         });
       </script>
       <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.querySelector(".video");
-            video.muted = true;
-            video.play().catch(e => {
-                console.log("Autoplay failed:", e);
+        const video = document.querySelector(".video");
+        video.muted = true;
+        
+        setTimeout(() => {
+            video.play().catch((e) => {
+            console.warn("Autoplay failed:", e);
             });
-            });
+        }, 100);
       </script>
     <!-- <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
     
