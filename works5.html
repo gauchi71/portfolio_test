@@ -21,7 +21,7 @@
     <link rel="icon" href="favicon.ico" id="favicon">
 </head>
 
-<body>
+<body class="lower_page">
     <header>
         <div class="top3">
             <picture>
@@ -112,8 +112,14 @@
                 }
             })
         })
-
-
+    </script>
+    <script>
+        $(function () {
+            $('.sp_btn').on('click', function () {
+                $('.sp_btn').toggleClass('open');
+                $('.sp_nav').fadeToggle();
+            })
+        })
     </script>
 </body>
 

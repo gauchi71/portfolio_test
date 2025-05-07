@@ -21,7 +21,7 @@
     <link rel="icon" href="favicon.ico" id="favicon">
 </head>
 
-<body>
+<body class="lower_page">
     <header>
         <div class="top3">
             <picture>
@@ -80,6 +80,16 @@
                 </tr>
             </table>
         </div>
+        <div class="workers_wrap">
+            <div class="work_pc">
+                <p>PC</p>
+                <img src="2x/DCAFE_PC@2x-80.jpg" alt="PC">
+            </div>
+            <div class="work_sp">
+                <p>Smart Phone</p>
+                <img src="2x/DCAFE_SP@2x-80.jpg" alt="SP">
+            </div>
+        </div>
     </section>
     <footer class="works4">
         <div class="square">
@@ -102,8 +112,14 @@
                 }
             })
         })
-
-
+    </script>
+    <script>
+        $(function () {
+            $('.sp_btn').on('click', function () {
+                $('.sp_btn').toggleClass('open');
+                $('.sp_nav').fadeToggle();
+            })
+        })
     </script>
 </body>
 
