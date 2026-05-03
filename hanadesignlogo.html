@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hana design WORKS</title>
+    <title>WORKS hana design ロゴ</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,53 +25,6 @@
 
 </head>
 
-<script>
-    var searchItem = '.btn_works';
-    var listItem = '.work-card';
-    var hideClass = 'is-hide';
-    var activeClass = 'is-active';
-    var messageId = '#js-coming-soon'; // メッセージのID
-
-    $(function () {
-        $(searchItem).on('click', function () {
-            if ($(this).hasClass(activeClass)) {
-                $(this).removeClass(activeClass);
-                search_filter('');
-            } else {
-                $(searchItem).removeClass(activeClass);
-                var group = $(this).addClass(activeClass).data('group');
-                search_filter(group);
-            }
-        });
-    });
-
-    function search_filter(group) {
-        // 全てのカードから一旦非表示クラスを外す
-        $(listItem).removeClass(hideClass);
-
-        // 絞り込み実行
-        if (group !== '') {
-            $(listItem).each(function () {
-                var itemData = $(this).data('group');
-                if (itemData !== group) {
-                    $(this).addClass(hideClass);
-                }
-            });
-        }
-
-        // 【ここから追加】表示されているカードの数を数える
-        // 全体の数から、hideClass（非表示）がついている数を引く
-        var visibleCount = $(listItem).length - $(listItem + '.' + hideClass).length;
-
-        if (visibleCount === 0) {
-            // 表示されているカードが0なら、メッセージを出す
-            $(messageId).fadeIn(); // ふわっと出す
-        } else {
-            // 1つでもあるなら、メッセージを隠す
-            $(messageId).hide();
-        }
-    }
-</script>
 
 <body>
     <div>
@@ -120,11 +73,11 @@
                 </h1>
                 <nav class="pc_nav">
                     <ul>
-                        <li><a href="./index.html#concept">CONCEPT</a></li>
-                        <li><a href="./about.html">ABOUT</a></li>
-                        <li><a href="./experience.html">EXPERIENCE</a></li>
-                        <li><a href="./works.html">WORKS</a></li>
-                        <li><a href="./contact.html">CONTACT</a></li>
+                        <li><a href="file:///Users/hanako/Desktop/hana_design/index.html#concept">CONCEPT</a></li>
+                        <li><a href="file:///Users/hanako/Desktop/hana_design/about.html">ABOUT</a></li>
+                        <li><a href="file:///Users/hanako/Desktop/hana_design/experience.html">EXPERIENCE</a></li>
+                        <li><a href="file:///Users/hanako/Desktop/hana_design/works.html">WORKS</a></li>
+                        <li><a href="file:///Users/hanako/Desktop/hana_design/contact.html">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
@@ -160,244 +113,66 @@
         </div>
     </div>
 
+    <section class="work-detail anim-box fadeup">
+        <header class="works-detail-header">
+            <div class="capsule-tag-wrapper">
+                <span class="capsule-tag-text">ロゴ</span>
+            </div>
+            <div class="works-detail-title">
+                <p class="category-name">ポートフォリオサイトロゴ</p>
+                <p class="client-name">「hana design」</p>
+            </div>
+        </header>
 
-    <section>
-        <h2 class="anim-box fadeup">WORKS</h2>
-        <p class="subtitle anim-box fadeup">作ったもの</p>
-        <div class="works_filter anim-box fadeup delay-1">
-            <a class="btn_works" data-group="website">Webサイト</a>
-            <a class="btn_works" data-group="banner">Webバナー</a>
-            <a class="btn_works" data-group="lp">LP</a>
-            <a class="btn_works" data-group="printed">印刷物</a>
-            <a class="btn_works" data-group="logo">ロゴ</a>
-            <a class="btn_works" data-group="other">その他</a>
+        <div class="works-main-visual">
+            <img class="logo-design" src="./images/hana_design_logo_pink.svg" alt="hana designロゴ">
         </div>
 
-        <div class="works-grid">
-            <article class="work-card" data-group="website">
-                <div class="work-card-header">
-                    <h3 class="work-title">ポートフォリオサイト</h3>
+        <div class="works-info-container">
+            <dl class="info-list">
+                <div class="info-item">
+                    <dt>コンセプト</dt>
+                    <dd>
+                        hana designのポートフォリオサイトと同じく「ベルフラワー」をモチーフにし、親しみやすく・分かりやすいロゴを目指しました。
+                    </dd>
                 </div>
-                <a href="./hanadesignlogo.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_hanadesign.jpg" alt="ポートフォリオサイト 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>ポートフォリオサイト</p>
-                        <p>「hana design」</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">Webサイト | 自主制作</span>
-                    </div>
+                <div class="info-item">
+                    <dt>制作にあたって</dt>
+                    <dd>
+                        <p>ポートフォリオサイトのFメインビジュアルにベルフラワーの画像を使用しており、大人っぽくシンプルに仕上げているため、サイトの世界観に合うようにしました。
+                            モチーフ的に役割をしている上部の「hana」は花のしなやかな印象が出るようなフォントを編集し、かつ「a」の形をベルフラワーの花が咲いている様子が連想できるような形にしました。
+                            ベルフラワーといえば紫を連想しますが、大人っぽい・高貴なイメージになってしまうため、暖かく寄り添うような印象を与えたく、ピンクの中でも可愛くなりすぎないようくす身がかった濃いめのカラーをを設定しました。
+                        </p>
+                        <div class="color-palette-container">
+                            <p class="color-label">【使用カラー】</p>
+                            <div class="color-list">
+                                <div class="color-item">
+                                    <div class="color-box" style="background-color: #D27B7E;"></div>
+                                    <span class="color-code">D27B7E</span>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
                 </div>
-            </article>
-
-            <article class="work-card" data-group="logo">
-                <div class="work-card-header">
-                    <h3 class="work-title">ロゴデザイン</h3>
+                <div class="info-item">
+                    <dt>担当範囲</dt>
+                    <dd>企画立案／デザイン</dd>
                 </div>
-                <a href="./hanadesignlogo.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_hanadesign_logo.jpg" alt="hana design ロゴ画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>ポートフォリオサイト</p>
-                        <p>「hana design」</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">ロゴ | 自主制作</span>
-                    </div>
+                <div class="info-item">
+                    <dt>使用ツール</dt>
+                    <dd>Illustrator</dd>
                 </div>
-            </article>
-
-            <article class="work-card" data-group="lp">
-                <div class="work-card-header">
-                    <h3 class="work-title">店舗サイト</h3>
+                <div class="info-item">
+                    <dt>制作日数</dt>
+                    <dd>14日</dd>
                 </div>
-                <a href="./lifehairsalon.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_lifehairsalon.jpg" alt="LIFE hair salon 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>ヘアサロン</p>
-                        <p>「LIFE hair salon」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">LP | 課題</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="banner">
-                <div class="work-card-header">
-                    <h3 class="work-title">SNS広告用バナー</h3>
-                </div>
-                <a href="./hanaburger.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_burger.jpg" alt="hana burger広告バナー 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>ファストフード店</p>
-                        <p>「hana burger」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">Webバナー | 課題</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="banner">
-                <div class="work-card-header">
-                    <h3 class="work-title">SNS広告用バナー</h3>
-                </div>
-                <a href="./hanaice.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_ice.jpg" alt="hana ice広告バナー 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>アイスクリーム専門店</p>
-                        <p>「hana ice」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">Webバナー | 課題</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="website">
-                <div class="work-card-header">
-                    <h3 class="work-title">店舗サイト</h3>
-                </div>
-                <a href="./lifehairsalon.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_designcafe.jpg" alt="DESIGN CAFE 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>カフェ</p>
-                        <p>「DESIGN CAFE」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">LP | 課題</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="logo">
-                <div class="work-card-header">
-                    <h3 class="work-title">ロゴデザイン</h3>
-                </div>
-                <a href="./luce.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_luce.jpg" alt="luce ロゴ画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>キッチンカー</p>
-                        <p>「Luce」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">ロゴ | クライアントワーク</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="printed">
-                <div class="work-card-header">
-                    <h3 class="work-title">名刺デザイン</h3>
-                </div>
-                <a href="./takasawa.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_takasawa.jpg" alt="髙澤品質管理研究所 名刺 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>コンサルティング会社</p>
-                        <p>「髙澤品質管理研究所」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">名刺 | クライアントワーク</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="lp">
-                <div class="work-card-header">
-                    <h3 class="work-title">店舗/予約サイト</h3>
-                </div>
-                <a href="./lifehairsalon.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_workers.jpg" alt="WORKERS 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>コワーキングスペース</p>
-                        <p>「WORKERS」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">LP | 課題</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="work-card" data-group="banner">
-                <div class="work-card-header">
-                    <h3 class="work-title">SNS広告用バナー</h3>
-                </div>
-                <a href="./dezasutamobile.html">
-                    <div class="work-card-image zoom_box">
-                        <img src="images/works_mobile.jpg" alt="デザスタmobile広告バナー 実績画像" class="zoom_img">
-                        <span class="more-text">More</span>
-                    </div>
-                </a>
-                <div class="work-card-footer">
-                    <div class="work-description">
-                        <p>スマートフォンキャリア</p>
-                        <p>「デザスタmobile」様</p>
-                    </div>
-                    <div class="work-meta">
-                        <span class="work-category">Webバナー | 課題</span>
-                    </div>
-                </div>
-            </article>
+            </dl>
         </div>
-        <p id="js-coming-soon" class="coming-soon-text" style="display: none;">Sorry!<br>Coming soon...</p>
+        <div class="works-visual-yoko2">
+            <img class="pc-image" src="./images/hana_design_logo_detail1.jpg" alt="hana design ロゴ ピンク">
+            <img class="sp-image" src="./images/hana_design_logo_detail2.jpg" alt="hana design ロゴ ホワイト">
+        </div>
     </section>
-
-    <nav class="pagination">
-        <a class="prev page-numbers" href="#">Prev</a>
-        <a class="page-numbers" href="#">1</a>
-        <a class="page-numbers" href="#">2</a>
-        <span class="page-numbers current">3</span>
-        <a class="page-numbers" href="#">4</a>
-        <a class="page-numbers" href="#">5</a>
-        <span class="page-numbers dots">…</span>
-        <a class="page-numbers" href="#">30</a>
-        <a class="next page-numbers" href="#">Next</a>
-    </nav>
 
 
     <footer>
@@ -516,6 +291,14 @@
 
                 // 1. フェードアップ（.anim-box）
                 $('.anim-box').each(function () {
+                    const target = $(this).offset().top;
+                    if (scrollTop > target - windowHeight + 150) {
+                        $(this).addClass('is-animated');
+                    }
+                });
+
+                // 2. くるくる画像（.kurukuru）
+                $('.kurukuru').each(function () {
                     const target = $(this).offset().top;
                     if (scrollTop > target - windowHeight + 150) {
                         $(this).addClass('is-animated');
